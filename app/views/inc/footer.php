@@ -2,7 +2,7 @@
 
 <footer>
     <div class="container text-right">
-        <small>Version: <strong><?php echo APPVERSION; ?></strong></small>
+        <!-- <small>Version: <strong><?php echo APPVERSION; ?></strong></small> -->
     </div>
 </footer>
 <!-- Optional JavaScript -->
