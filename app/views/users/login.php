@@ -18,7 +18,7 @@
          <div class="card card-body bg-light p-2 mt-5">
          <form action="" method="post" class="form py-4" id="form" enctype="multipart/form-data">
          <div class="bank-logo pt-0 pb-3">
-            <img src="./img/viewdeep-logo.png" width="130px" height="130px">
+            <img src="<?php echo URLROOT; ?>/img/viewdeep-logo.png" width="130px" height="130px">
             <h5>VIEWDEEP E-RECEIPT GENERATOR</h5>
          </div>
          <div class="form-group">
