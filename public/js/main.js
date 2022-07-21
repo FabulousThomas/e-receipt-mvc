@@ -1,1 +1,1 @@
-alert('Hello JS FILE');
+// alert('Hello JS FILE');
