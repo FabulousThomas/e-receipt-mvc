@@ -57,7 +57,7 @@ textarea:active {
 
 .container .form-group input {
     text-align: center;
-    font-size: 18px;
+    /* font-size: 16px; */
     letter-spacing: 1px;
     color: #333;
     margin: 0;
