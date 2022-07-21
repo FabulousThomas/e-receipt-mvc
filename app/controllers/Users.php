@@ -4,6 +4,7 @@ class Users extends Controller
    public function __construct()
    {
       // echo 'HELLO FROM USERS';
+      $this->userModel = $this->model('User');
    }
 
    // Load Login view
@@ -75,6 +76,10 @@ class Users extends Controller
          // Validate Email
          if (empty($data['email'])) {
             $data['email_err'] = 'Please enter email';
+         } else {
+            if($this->userModel->checkEmail($data['email'])) {
+               $data['email_err'] = 'Email is already taken';
+            }
          }
          // Validate password
          if (empty($data['password'])) {
@@ -82,7 +87,7 @@ class Users extends Controller
          }
 
          // Make sure errors are empty
-         if (empty($data['username_err']) && empty($data['password_err']) && empty($data['email_err'])) {
+         if (empty($data['username_err']) && empty($data['email_err']) && empty($data['password_err'])) {
             // Validate (passed)
             die('SUCCESS');
          } else {
