@@ -22,19 +22,19 @@
             <h5>VIEWDEEP E-RECEIPT GENERATOR</h5>
          </div>
          <div class="form-group">
-            <input type="text" name="username" class="form-control form-control-lg <?php echo (empty($data['username'])) ? 'is-invalid' : ''; ?>" placeholder="USERNAME" value="<?php echo $data['username']; ?>" spellcheck="false" autocomplete="off" maxlength="50">
+            <input type="text" name="username" class="form-control <?php echo (empty($data['username'])) ? 'is-invalid' : ''; ?>" placeholder="USERNAME" value="<?php echo $data['username']; ?>" spellcheck="false" autocomplete="off" maxlength="50">
             <small class="invalid-feedback"><?php echo $data['username_err']; ?></small>
          </div>
          <div class="form-group">
-            <input type="password" name="password" class="form-control form-control-lg <?php echo (empty($data['password'])) ? 'is-invalid' : ''; ?>" placeholder="PASSWORD" value="<?php echo $data['password']; ?>" maxlength="50">
+            <input type="password" name="password" class="form-control <?php echo (empty($data['password'])) ? 'is-invalid' : ''; ?>" placeholder="PASSWORD" value="<?php echo $data['password']; ?>" maxlength="50">
             <small class="invalid-feedback"><?php echo $data['password_err']; ?></small>
          </div>
          <div class="row">
             <div class="col">
-            <button type="submit" name="login_btn" class="btn btn-primary form-control-lg rounded-0 btn-block" id="submit">Login</button>
+            <button type="submit" name="login_btn" class="btn btn-primary rounded-0 btn-block" id="submit">Login</button>
             </div>
             <div class="col">
-           <a href="<?php echo URLROOT;?>/users/register" class="btn btn-light form-control-lg rounded-0" style="font-size: .9rem ;">No account? Register</a>
+           <a href="<?php echo URLROOT;?>/users/register" class="btn btn-light rounded-0" style="font-size: .9rem ;">No account? Register</a>
             </div>
          </div>
          <!-- <div class="form-group">
