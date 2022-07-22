@@ -77,7 +77,7 @@ class Users extends Controller
          if (empty($data['email'])) {
             $data['email_err'] = 'Please enter email';
          } else {
-            if($this->userModel->checkEmail($data['email'])) {
+            if ($this->userModel->checkEmail($data['email'])) {
                $data['email_err'] = 'Email is already taken';
             }
          }
@@ -89,7 +89,13 @@ class Users extends Controller
          // Make sure errors are empty
          if (empty($data['username_err']) && empty($data['email_err']) && empty($data['password_err'])) {
             // Validate (passed)
-            die('SUCCESS');
+            $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+            if ($this->userModel->register($data)) {
+               // redirect user
+               redirect('users/login');
+            } else {
+               die('Something went wrong');
+            }
          } else {
             // Load views with errors
             $this->view('users/register', $data);
