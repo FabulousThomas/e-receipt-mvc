@@ -7,9 +7,29 @@ class User
       $this->db = new Database;
    }
 
-   function checkEmail($email)
+   // Register user
+   public function register($data)
    {
-      $this->db->querry('SELECT * FROM users WHERE email = :email');
+      $user_id = random_num(10);
+      $this->db->query('INSERT INTO users (user_id, username, email, password) VALUES (:user_id, :username, :email, :password)');
+      // Bind values
+      $this->db->bind(':user_id', $user_id);
+      $this->db->bind(':username', $data['username']);
+      $this->db->bind(':email', $data['email']);
+      $this->db->bind(':password', $data['password']);
+
+      // Execute query
+      if ($this->db->execute()) {
+         return true;
+      } else {
+         return false;
+      }
+   }
+
+   // Check email
+   public function checkEmail($email)
+   {
+      $this->db->query('SELECT * FROM users WHERE email = :email');
       $this->db->bind(':email', $email);
       $row = $this->db->singletSet();
 
