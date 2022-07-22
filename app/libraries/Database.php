@@ -50,7 +50,7 @@ class Database
    }
 
    // Prepare sql querry
-   public function querry($sql)
+   public function query($sql)
    {
       $this->stmt = $this->dbh->prepare($sql);
    }
