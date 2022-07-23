@@ -40,4 +40,34 @@ class User
          return false;
       }
    }
+
+    // Check username
+    public function checkUsername($username)
+    {
+       $this->db->query('SELECT * FROM users WHERE username = :username');
+       $this->db->bind(':username', $username);
+       $row = $this->db->singletSet();
+ 
+       // Check row for data
+       if ($this->db->rowCount() > 0) {
+          return true;
+       } else {
+          return false;
+       }
+    }
+
+     // Check username
+     public function checkPassword($password)
+     {
+        $this->db->query('SELECT * FROM users WHERE password = :password');
+        $this->db->bind(':password', $password);
+        $row = $this->db->singletSet();
+  
+        // Check row for data
+        if ($this->db->rowCount() > 0) {
+           return true;
+        } else {
+           return false;
+        }
+     }
 }
