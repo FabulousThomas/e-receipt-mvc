@@ -1,6 +1,7 @@
 <?php
 class Users extends Controller
 {
+   
    public function __construct()
    {
       // echo 'HELLO FROM USERS';
@@ -21,20 +22,40 @@ class Users extends Controller
             'password' => trim($_POST['password']),
             'username_err' => '',
             'password_err' => '',
+            'login_err' => '',
          ];
+
          // Validate Username
          if (empty($data['username'])) {
             $data['username_err'] = 'Please enter username';
          }
+
          // Validate password
          if (empty($data['password'])) {
             $data['password_err'] = 'Please enter password';
          }
 
+         // Check for user/email
+         if($this->userModel->checkEmail($data['username'])) {
+            // User is found
+         } else {
+         // No user is found
+         $data['username_err'] = 'No user for this username is found';
+         }
+
          // Make sure errors are empty
          if (empty($data['username_err']) && empty($data['password_err'])) {
             // Validate (passed)
-            die('SUCCESS');
+            // die('SUCCESS');
+            $loginUser = $this->userModel->login($data['username'], $data['password']);
+
+            if($loginUser) {
+               // Create session
+            } else {
+               $data['password_err'] = 'Incorrect password';
+               $this->view('users/login', $data);
+            }
+
          } else {
             // Load views with errors
             $this->view('users/login', $data);
@@ -46,6 +67,7 @@ class Users extends Controller
             'password' => '',
             'username_err' => '',
             'password_err' => '',
+            'login_err' => '',
          ];
          // Load View
          $this->view('users/login', $data);
@@ -69,10 +91,16 @@ class Users extends Controller
             'username_err' => '',
             'password_err' => '',
          ];
+
          // Validate Username
          if (empty($data['username'])) {
             $data['username_err'] = 'Please enter username';
+         } else {
+            if ($this->userModel->checkUsername($data['username'])) {
+               $data['username_err'] = 'username is already taken';
+            }
          }
+
          // Validate Email
          if (empty($data['email'])) {
             $data['email_err'] = 'Please enter email';
@@ -81,6 +109,7 @@ class Users extends Controller
                $data['email_err'] = 'Email is already taken';
             }
          }
+
          // Validate password
          if (empty($data['password'])) {
             $data['password_err'] = 'Please enter password';
