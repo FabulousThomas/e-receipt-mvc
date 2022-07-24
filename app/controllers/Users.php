@@ -1,7 +1,7 @@
 <?php
 class Users extends Controller
 {
-   
+
    public function __construct()
    {
       // echo 'HELLO FROM USERS';
@@ -36,11 +36,11 @@ class Users extends Controller
          }
 
          // Check for user/email
-         if($this->userModel->checkEmail($data['username'])) {
+         if ($this->userModel->checkUsername($data['username'])) {
             // User is found
          } else {
-         // No user is found
-         $data['username_err'] = 'No user for this username is found';
+            // No user is found
+            $data['username_err'] = 'No user found';
          }
 
          // Make sure errors are empty
@@ -49,13 +49,13 @@ class Users extends Controller
             // die('SUCCESS');
             $loginUser = $this->userModel->login($data['username'], $data['password']);
 
-            if($loginUser) {
-               // Create session
+            if ($loginUser) {
+               // Create login session
+               $this->createLogInSession($loginUser);
             } else {
                $data['password_err'] = 'Incorrect password';
                $this->view('users/login', $data);
             }
-
          } else {
             // Load views with errors
             $this->view('users/login', $data);
@@ -121,7 +121,7 @@ class Users extends Controller
             $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
             if ($this->userModel->register($data)) {
                // redirect user
-               flashMsg('register_success', '<strong>Congratulations, ' .$data['username']. '!'.' </strong> Proceed to login');
+               flashMsg('register_success', '<strong>Congratulations, ' . $data['username'] . '!' . ' </strong> Proceed to login');
                redirect('users/login');
             } else {
                die('Something went wrong');
@@ -142,6 +142,33 @@ class Users extends Controller
          ];
          // Load View
          $this->view('users/register', $data);
+      }
+   }
+
+   // Create login session
+   public function createLogInSession($user)
+   {
+      $_SESSION['user_id'] = $user->id;
+      $_SESSION['user_email'] = $user->email;
+      $_SESSION['user_username'] = $user->username;
+      redirect('pages/index');
+   }
+
+   // Create logout session
+   public function logout()
+   {
+      unset($_SESSION['user_id']);
+      unset($_SESSION['user_email']);
+      unset($_SESSION['user_username']);
+      redirect('users/login');
+   }
+
+   // Checks if user is logged in
+   public function isLoggedIn() {
+      if(isset($_SESSION['user_id'])) {
+         return true;
+      } else {
+         return false;
       }
    }
 }
