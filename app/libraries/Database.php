@@ -66,7 +66,7 @@ class Database
       return $this->stmt->fetchAll(PDO::FETCH_OBJ);
    }
    // Get Single Set as object
-   public function singletSet()
+   public function singleSet()
    {
       $this->execute();
       return $this->stmt->fetch(PDO::FETCH_OBJ);
