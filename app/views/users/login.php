@@ -21,15 +21,7 @@
             <img src="<?php echo URLROOT; ?>/img/viewdeep-logo.png" width="130px" height="130px">
             <h5>VIEWDEEP E-RECEIPT GENERATOR</h5>
          </div>
-         <!-- <div class="alert alert-primary alert-dismissible fade show" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-               <span aria-hidden="true">&times;</span>
-               <span class="sr-only">Close</span>
-            </button>
-            <?php if ($loginErr) { ?>
-               <div style="color: red;"><?php echo $loginErr; ?></div>
-            <?php } ?>
-         </div> -->
+            <?php flashMsg('register_success'); ?>
          <div class="form-group">
             <input type="text" name="username" class="form-control <?php echo (empty($data['username'])) ? 'is-invalid' : ''; ?>" placeholder="USERNAME" value="<?php echo $data['username']; ?>" spellcheck="false" autocomplete="off" maxlength="50">
             <small class="invalid-feedback"><?php echo $data['username_err']; ?></small>
