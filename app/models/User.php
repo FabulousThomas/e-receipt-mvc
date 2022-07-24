@@ -26,12 +26,28 @@ class User
       }
    }
 
+   // Login user
+   public function login($username, $password)
+   {
+      $this->db->query('SELECT * FROM users WHERE username = :username');
+      $this->db->bind(':username', $username);
+
+      $row = $this->db->singleSet();
+
+      $hashed_password = $row->password;
+      if (password_verify($password, $hashed_password)) {
+         return $row;
+      } else {
+         return false;
+      }
+   }
+
    // Check email
    public function checkEmail($email)
    {
       $this->db->query('SELECT * FROM users WHERE email = :email');
       $this->db->bind(':email', $email);
-      $row = $this->db->singletSet();
+      $row = $this->db->singleSet();
 
       // Check row for data
       if ($this->db->rowCount() > 0) {
@@ -41,33 +57,18 @@ class User
       }
    }
 
-    // Check username
-    public function checkUsername($username)
-    {
-       $this->db->query('SELECT * FROM users WHERE username = :username');
-       $this->db->bind(':username', $username);
-       $row = $this->db->singletSet();
- 
-       // Check row for data
-       if ($this->db->rowCount() > 0) {
-          return true;
-       } else {
-          return false;
-       }
-    }
+   // Check username
+   public function checkUsername($username)
+   {
+      $this->db->query('SELECT * FROM users WHERE username = :username');
+      $this->db->bind(':username', $username);
+      $row = $this->db->singleSet();
 
-     // Check username
-     public function checkPassword($password)
-     {
-        $this->db->query('SELECT * FROM users WHERE password = :password');
-        $this->db->bind(':password', $password);
-        $row = $this->db->singletSet();
-  
-        // Check row for data
-        if ($this->db->rowCount() > 0) {
-           return true;
-        } else {
-           return false;
-        }
-     }
+      // Check row for data
+      if ($this->db->rowCount() > 0) {
+         return true;
+      } else {
+         return false;
+      }
+   }
 }
