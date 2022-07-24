@@ -41,11 +41,7 @@
            <a href="<?php echo URLROOT;?>/users/login" class="btn btn-light rounded-0" style="font-size: .9rem ;">Have an account? Login</a>
             </div>
          </div>
-         <!-- <div class="form-group">
-            <?php if ($loginErr) { ?>
-               <div style="color: red;"><?php echo $loginErr; ?></div>
-            <?php } ?>
-         </div> -->
+         
       </form>
          </div>
          
