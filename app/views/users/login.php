@@ -38,11 +38,7 @@
            <a href="<?php echo URLROOT;?>/users/register" class="btn btn-light rounded-0" style="font-size: .9rem ;">No account? Register</a>
             </div>
          </div>
-         <!-- <div class="form-group">
-            <?php if ($loginErr) { ?>
-               <div style="color: red;"><?php echo $loginErr; ?></div>
-            <?php } ?>
-         </div> -->
+         
       </form>
          </div>
          
