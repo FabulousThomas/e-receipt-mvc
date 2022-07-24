@@ -121,6 +121,7 @@ class Users extends Controller
             $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
             if ($this->userModel->register($data)) {
                // redirect user
+               flashMsg('register_success', '<strong>Congratulations, ' .$data['username']. '!'.' </strong> Proceed to login');
                redirect('users/login');
             } else {
                die('Something went wrong');
