@@ -22,15 +22,15 @@
             <h5>VIEWDEEP E-RECEIPT GENERATOR</h5>
          </div>
          <div class="form-group">
-            <input type="text" name="username" class="form-control <?php echo (empty($data['username'])) ? 'is-invalid' : ''; ?>" placeholder="USERNAME" value="<?php echo $data['username']; ?>" spellcheck="false" autocomplete="off" maxlength="50">
+            <input type="text" name="username" class="form-control <?php echo (!empty($data['username_err'])) ? 'is-invalid' : ''; ?>" placeholder="USERNAME" value="<?php echo $data['username']; ?>" spellcheck="false" autocomplete="off" maxlength="50">
             <small class="invalid-feedback"><?php echo $data['username_err']; ?></small>
          </div>
          <div class="form-group">
-            <input type="email" name="email" class="form-control <?php echo (empty($data['email'])) ? 'is-invalid' : ''; ?>" placeholder="EMAIL" value="<?php echo $data['email']; ?>" spellcheck="false" autocomplete="off">
+            <input type="email" name="email" class="form-control <?php echo (!empty($data['email_err'])) ? 'is-invalid' : ''; ?>" placeholder="EMAIL" value="<?php echo $data['email']; ?>" spellcheck="false" autocomplete="off">
             <small class="invalid-feedback"><?php echo $data['email_err']; ?></small>
          </div>
          <div class="form-group">
-            <input type="password" name="password" class="form-control <?php echo (empty($data['password'])) ? 'is-invalid' : ''; ?>" placeholder="PASSWORD" value="<?php echo $data['password']; ?>" maxlength="50">
+            <input type="password" name="password" class="form-control <?php echo (!empty($data['password_err'])) ? 'is-invalid' : ''; ?>" placeholder="PASSWORD" value="<?php echo $data['password']; ?>" maxlength="50">
             <small class="invalid-feedback"><?php echo $data['password_err']; ?></small>
          </div>
          <div class="row">
