@@ -161,6 +161,7 @@ class Users extends Controller
       unset($_SESSION['user_email']);
       unset($_SESSION['user_username']);
       redirect('users/login');
+      die;
    }
 
    // Checks if user is logged in
