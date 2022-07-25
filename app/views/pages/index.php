@@ -1,6 +1,6 @@
-<?php APPROOT . '/views/inc/header.php'; ?>
+<?php require APPROOT . '/views/inc/header.php'; ?>
 
-<?php require APPROOT .'/views/inc/sidebar.php'; ?>
+<?php require APPROOT . '/views/inc/sidebar.php'; ?>
 
 <div class="main-content">
    <header>
@@ -13,10 +13,18 @@
       <div class="user-wrapper">
          <span class="las la-user"></span>
          <div>
-            <h4><?php echo $data['username'] ?></h4>
+
+            <!-- <h4><?php echo $data['username'] ?></h4> -->
             <!-- <small>Admin</small> -->
+            <div class="dropdown open">
+               <a class="btn text-uppercase border-primary text-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Admin
+               </a>
+               <div class="dropdown-menu">
+                  <a class="dropdown-item text-danger" href="<?php echo URLROOT; ?>/users/logout">Logout</a>
+               </div>
+            </div>
          </div>
-         <a href="<?php echo URLROOT; ?>/users/logout">Logout</a>
       </div>
    </header>
 
@@ -30,7 +38,7 @@
                   <h3>Invoice</h3>
 
                   <!-- <form action="./invoice.php"> -->
-                  <button>Create Receipt <span class="las la-plus"> </span></button>
+                  <a class="btn btn-primary text-uppercase border-primary text-white btn-sm" type="button">Add Receipt <span class="las la-plus"> </span></a>
                   <!-- </form> -->
                </div>
                <div class="card-body">
@@ -85,4 +93,4 @@
       </div>
    </main>
 </div>
-<?php APPROOT . '/views/inc/footer.php'; ?>
+<?php require APPROOT . '/views/inc/footer.php'; ?>
