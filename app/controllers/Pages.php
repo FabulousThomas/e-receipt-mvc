@@ -3,7 +3,13 @@ class Pages extends Controller
 {
    public function __construct()
    {
-      // echo 'Page Loaded';
+      // Redirects to login page if user is not logged in
+      // if(!isset($_SESSION['user_id'])) {
+      //    redirect('users/login');
+      // }
+      if(!isLoggedIn()) {
+         redirect('users/login');
+      }
    }
 
    public function index()
