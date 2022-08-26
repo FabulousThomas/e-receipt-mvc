@@ -3,30 +3,31 @@
 <?php require APPROOT . '/views/inc/sidebar.php'; ?>
 
 <div class="main-content">
-   <header>
-      <h2>
-         <label for="nav-toggle">
-            <span class="las la-bars"></span>
-         </label> <span class="name">Dashboard</span>
-      </h2>
+      <header>
+         <h2>
+            <label for="nav-toggle">
+               <span class="las la-bars"></span>
+            </label> <span class="name">Dashboard</span>
+         </h2>
 
-      <div class="user-wrapper">
-         <span class="las la-user"></span>
-         <div>
+         <div class="user-wrapper">
+            <span class="las la-user"></span>
+            <div>
 
-            <!-- <h4><?php echo $data['username'] ?></h4> -->
-            <!-- <small>Admin</small> -->
-            <div class="dropdown open">
-               <a class="btn text-uppercase border-primary text-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Admin
-               </a>
-               <div class="dropdown-menu">
-                  <a class="dropdown-item text-danger" href="<?php echo URLROOT; ?>/users/logout">Logout</a>
+               <div class="dropdown open">
+                  <a class="btn text-uppercase border-primary text-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <?php if (isset($_SESSION['user_id'])) : ?>
+                        <?php echo $_SESSION['user_username'] ?>
+                     <?php endif; ?>
+                  </a>
+                  <div class="dropdown-menu">
+                     <a class="dropdown-item text-danger" href="<?php echo URLROOT; ?>/users/logout">Logout</a>
+                  </div>
                </div>
+
             </div>
          </div>
-      </div>
-   </header>
+      </header>
 
    <main>
       <?php require APPROOT . '/views/inc/cards.php' ?>
