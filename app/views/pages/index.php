@@ -29,7 +29,7 @@
    </header>
 
    <main>
-      <!-- <?php require APPROOT . '/views/inc/cards.php' ?> -->
+      <?php require APPROOT . '/views/inc/cards.php' ?>
 
       <div class="recent-grid">
          <div class="projects">
@@ -51,36 +51,42 @@
                               <td>Dates</td>
                               <td>Customers</td>
                               <td>Amounts</td>
-                              <!-- <td>Users</td> -->
-                              <td>Edit</td>
-                              <td>Delete</td>
-                              <td>View</td>
+                              <!-- <td>View</td> -->
                            </tr>
                         </thead>
                         <tbody>
 
-                           <?php foreach ($result_limit as $res) { ?>
+                           <?php foreach ($data['receipt'] as $res) : ?>
                               <form action="" method="POST" enctype="multipart/form-data">
-                                 <input type="text" hidden id="id" value="<?php echo $res['id']; ?>">
+                                 <input type="text" hidden id="id" value="<?php echo $res->id; ?>">
                               </form>
 
                               <tr>
-                                 <td class="name"><?php echo $res['serial_no'] ?></td>
-                                 <td class="name"><?php echo $res['user_id'] ?></td>
-                                 <td class="name"><?php echo $res['date'] ?></td>
-                                 <td class="name"><?php echo $res['received_from'] ?></td>
-                                 <td class="name">NGN <?php echo $res['amount_paid'] ?></td>
-                                 <!-- <td class="name"><?php echo $res['username'] ?></td> -->
-                                 <td><a href="./update.php?id=<?php echo $res['id'] ?>"><span class="las la-edit" id="las"></span></a></td>
+                                 <td class="name"><?php echo $res->serial_no ?></td>
+                                 <td class="name"><?php echo $res->user_id ?></td>
+                                 <td class="name"><?php echo $res->date ?></td>
+                                 <td class="name"><?php echo $res->received_from ?></td>
+                                 <td class="name">NGN <?php echo $res->amount_paid ?></td>
+
                                  <td>
-                                    <form method="POST" enctype="multipart/form-data">
-                                       <input type="text" hidden name="id" value="<?php echo $res['id']; ?>">
-                                       <button name="delete_btn" style="border: none; background: transparent;"><span class="las la-trash" id="las"></span></button>
-                                    </form>
+                                    <div class="dropdown text-dark">
+                                       <button class="btn btn-light text-dark dropdown-toggle" type="button" data-toggle="dropdown" style="font-size: .8rem;">Action</button>
+
+                                       <div class="dropdown-menu shadow py-1" style="font-size: .9rem;">
+
+                                          <a class="dropdown-item" href="./update.php?id=<?php echo $res->id ?>">Edit</a>
+
+                                          <form action="<?php echo URLROOT ?>/pages/delete/<?php echo $res->id ?>" method="POST" enctype="multipart/form-data">
+
+                                             <input type="submit" class="dropdown-item" value="Delete">
+                                          </form>
+                                          <a class="dropdown-item" href="./preview.php?id=<?php echo $res->id ?>" target="_blank">View</a>
+                                       </div>
+                                    </div>
                                  </td>
-                                 <td><a href="./preview.php?id=<?php echo $res['id'] ?>" target="_blank"><span class="las la-clipboard-list" id="las"></span></a></td>
+
                               </tr>
-                           <?php } ?>
+                           <?php endforeach ?>
                         </tbody>
 
                      </table>
