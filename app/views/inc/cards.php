@@ -1,5 +1,7 @@
 
-
+<?php 
+require_once 'connection.php';  
+?>
 <div class="cards">
             <div class="card-single">
                <div>
