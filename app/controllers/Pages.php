@@ -1,20 +1,24 @@
 <?php
 class Pages extends Controller
 {
+   private $pageModel = '';
    public function __construct()
    {
       // Redirects to login page if user is not logged in
       // if(!isset($_SESSION['user_id'])) {
       //    redirect('users/login');
       // }
-      if(!isLoggedIn()) {
+      if (!isLoggedIn()) {
          redirect('users/login');
       }
+      $this->pageModel = $this->model('Page');
    }
 
    public function index()
    {
+      $receiptLimit = $this->pageModel->getReceiptLimit();
       $data = [
+         'receipt' => $receiptLimit,
          'title' => 'WELCOME TO THE INDEX PAGE',
          'description' => 'Home Page',
       ];
