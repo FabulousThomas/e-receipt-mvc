@@ -1,4 +1,11 @@
 <?php
+/*
+ * PDO Database Class
+ * Connect to database
+ * Bind values
+ * Create prepared statements
+ * Return rows and result
+ */
 class Database
 {
    private $host = DB_HOST;
@@ -7,25 +14,30 @@ class Database
    private $dbname = DB_NAME;
 
    private $dbh;
-   private $error;
    private $stmt;
-
+   private $error;
 
    public function __construct()
    {
-      // Set DSN (Database String Name)
+      // Set DSN (DATABASE STRING NAME)
       $dsn = 'mysql:host=' . $this->host . '; dbname=' . $this->dbname;
       $options = array(
          PDO::ATTR_PERSISTENT => true,
          PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
       );
 
+      // Create PDO instance
       try {
          $this->dbh = new PDO($dsn, $this->user, $this->pass, $options);
       } catch (PDOException $e) {
          $this->error = $e->getMessage();
          echo $this->error;
       }
+   }
+
+   public function query($sql)
+   {
+      $this->stmt = $this->dbh->prepare($sql);
    }
 
    // Bind Values
@@ -48,31 +60,27 @@ class Database
       }
       $this->stmt->bindValue($param, $value, $type);
    }
-
-   // Prepare sql querry
-   public function query($sql)
-   {
-      $this->stmt = $this->dbh->prepare($sql);
-   }
-   // Execute sql querry
+   // Execute the prepared statement
    public function execute()
    {
       return $this->stmt->execute();
    }
-   // Get resultSet as array of object
+
+   // Get result set as array of object
    public function resultSet()
    {
       $this->execute();
       return $this->stmt->fetchAll(PDO::FETCH_OBJ);
    }
-   // Get Single Set as object
+
+   // Get single set as object
    public function singleSet()
    {
       $this->execute();
       return $this->stmt->fetch(PDO::FETCH_OBJ);
    }
 
-   // Get rowCount
+   // Get row count
    public function rowCount()
    {
       return $this->stmt->rowCount();
