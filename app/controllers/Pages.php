@@ -17,12 +17,36 @@ class Pages extends Controller
    public function index()
    {
       $receiptLimit = $this->pageModel->getReceiptLimit();
+
+      if(isset($_SERVER['REQUEST_METHOD']) == 'POST') {
+         // Sanitize input
+         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+         
+         
+
+         $data = [
+            'receipt' => $receiptLimit,
+            'title' => 'WELCOME TO THE INDEX PAGE',
+            'description' => 'Home Page',
+         ];
+
+      } else {
+         $data = [
+            'receipt' => $receiptLimit,
+            'title' => 'WELCOME TO THE INDEX PAGE',
+            'description' => 'Home Page',
+         ];
+         $this->view('pages/index', $data);
+      }
+
       $data = [
          'receipt' => $receiptLimit,
          'title' => 'WELCOME TO THE INDEX PAGE',
          'description' => 'Home Page',
       ];
       $this->view('pages/index', $data);
+
    }
 
    public function about()
