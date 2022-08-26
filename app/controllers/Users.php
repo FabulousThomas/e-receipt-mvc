@@ -9,72 +9,6 @@ class Users extends Controller
       $this->userModel = $this->model('User');
    }
 
-   // Load Login view
-   public function login()
-   {
-      // Check for Request
-      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-         // Process form
-         // Sanitize form inputs
-         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-         // Init data
-         $data = [
-            'username' => trim($_POST['username']),
-            'password' => trim($_POST['password']),
-            'username_err' => '',
-            'password_err' => '',
-            'login_err' => '',
-         ];
-
-         // Validate Username
-         if (empty($data['username'])) {
-            $data['username_err'] = 'Please enter username';
-         }
-
-         // Validate password
-         if (empty($data['password'])) {
-            $data['password_err'] = 'Please enter password';
-         }
-
-         // Check for user/email
-         if ($this->userModel->checkUsername($data['username'])) {
-            // User is found
-         } else {
-            // No user is found
-            $data['username_err'] = 'No user found';
-         }
-
-         // Make sure errors are empty
-         if (empty($data['username_err']) && empty($data['password_err'])) {
-            // Validate (passed)
-            // die('SUCCESS');
-            $loginUser = $this->userModel->login($data['username'], $data['password']);
-
-            if ($loginUser) {
-               // Create login session
-               $this->createLogInSession($loginUser);
-            } else {
-               $data['password_err'] = 'Incorrect password';
-               $this->view('users/login', $data);
-            }
-         } else {
-            // Load views with errors
-            $this->view('users/login', $data);
-         }
-      } else {
-         // Init data
-         $data = [
-            'username' => '',
-            'password' => '',
-            'username_err' => '',
-            'password_err' => '',
-            'login_err' => '',
-         ];
-         // Load View
-         $this->view('users/login', $data);
-      }
-   }
-
    // Load Register view
    public function register()
    {
@@ -143,6 +77,72 @@ class Users extends Controller
          ];
          // Load View
          $this->view('users/register', $data);
+      }
+   }
+
+   // Load Login view
+   public function login()
+   {
+      // Check for Request
+      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+         // Process form
+         // Sanitize form inputs
+         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+         // Init data
+         $data = [
+            'username' => trim($_POST['username']),
+            'password' => trim($_POST['password']),
+            'username_err' => '',
+            'password_err' => '',
+            'login_err' => '',
+         ];
+
+         // Validate Username
+         if (empty($data['username'])) {
+            $data['username_err'] = 'Please enter username';
+         }
+
+         // Validate password
+         if (empty($data['password'])) {
+            $data['password_err'] = 'Please enter password';
+         }
+
+         // Check for user/email
+         if ($this->userModel->checkUsername($data['username'])) {
+            // User is found
+         } else {
+            // No user is found
+            $data['username_err'] = 'No user found';
+         }
+
+         // Make sure errors are empty
+         if (empty($data['username_err']) && empty($data['password_err'])) {
+            // Validate (passed)
+            // die('SUCCESS');
+            $loginUser = $this->userModel->login($data['username'], $data['password']);
+
+            if ($loginUser) {
+               // Create login session
+               $this->createLogInSession($loginUser);
+            } else {
+               $data['password_err'] = 'Incorrect password';
+               $this->view('users/login', $data);
+            }
+         } else {
+            // Load views with errors
+            $this->view('users/login', $data);
+         }
+      } else {
+         // Init data
+         $data = [
+            'username' => '',
+            'password' => '',
+            'username_err' => '',
+            'password_err' => '',
+            'login_err' => '',
+         ];
+         // Load View
+         $this->view('users/login', $data);
       }
    }
 
