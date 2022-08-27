@@ -116,7 +116,7 @@
                   <div class="form-group mb-2 row">
                      <div class="col-md-6 mb-2">
                         <label for="date" class="mb-0">Date</label>
-                        <input type="date" name="date" class="form-control" placeholder="Date">
+                        <input type="date" name="date" class="form-control" required>
                      </div>
                      <div class="col-md-6">
                         <label for="estate" class="mb-0">Estate</label>
@@ -125,7 +125,7 @@
 
                         $selected = $options[0];
 
-                        echo '<select class="custom-select" name="estate">';
+                        echo '<select class="custom-select" name="estate" required>';
                         foreach ($options as $opt) {
                            if ($selected === $opt) {
                               echo '<option disabled selected value="' . $opt . '">' . $opt . '</option>';
@@ -141,18 +141,18 @@
                   <div class="form-group mb-2 row">
                      <div class="col-md-6 mb-2">
                         <label for="from" class="mb-0">Received From</label>
-                        <input type="text" name="from" class="form-control" placeholder="Customer's Name">
+                        <input type="text" name="from" class="form-control" placeholder="Customer's name" required>
                      </div>
                      <div class="col-md-6">
                         <label for="sum" class="mb-0">The Sum of</label>
-                        <input type="text" name="sum" class="form-control" placeholder="Amount in words">
+                        <input type="text" name="sum" class="form-control" placeholder="Amount in words" required>
                      </div>
                   </div>
 
                   <div class="form-group mb-2 row">
                      <div class="col-md-6">
                         <label for="payment_fig" class="mb-0">Payment in figure</label>
-                        <input type="text" name="payment_fig" class="form-control" placeholder="Amount in figure">
+                        <input type="text" name="payment_fig" class="form-control" placeholder="Amount in figure" required>
                      </div>
                      <div class="col-md-6 mb-2">
                         <label class="d-block">Mode of payment: </label>
@@ -172,7 +172,7 @@
                   <div class="form-group mb-2 row">
                      <div class="col-md-6 mb-2">
                         <label for="payment_for" class="mb-0">Being payment for</label>
-                        <input type="text" name="from" class="form-control" placeholder="Reason for payment">
+                        <input type="text" name="from" class="form-control" placeholder="Reason for payment" required>
                      </div>
                      <div class="col-md-6">
                         <label for="unit" class="mb-0">Number of unit(s)</label>
@@ -181,7 +181,7 @@
 
                         $selected = $options[0];
 
-                        echo '<select class="custom-select" name="unit">';
+                        echo '<select class="custom-select" name="unit" required>';
                         foreach ($options as $opt) {
                            if ($selected === $opt) {
                               echo '<option disabled selected value="' . $opt . '">' . $opt . '</option>';
