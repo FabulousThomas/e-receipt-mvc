@@ -35,7 +35,7 @@ if (isset($_POST['btnUpdateReceipt'])) {
 
    $sql = "UPDATE e_receipt SET date = '$date', estate = '$estate', received_from = '$received_from', sum_of = '$sum_of', payment_mode = '$payment_mode', payment_for = '$payment_for', payment_figure = '$payment_figure', no_unit = '$no_unit', amount_paid = '$amount_paid', outstanding = '$outstanding', balance = '$balance' WHERE user_id = '$id'";
 
-   if(mysqli_query($conn, $sql)) {
+   if (mysqli_query($conn, $sql)) {
       flashMsg('msg', 'Receipt updated');
       redirect('pages/index');
    } else {
