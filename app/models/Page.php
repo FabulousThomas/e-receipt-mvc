@@ -2,14 +2,14 @@
 class Page
 {
    private $db;
-   private $conn = '';
 
+   // ============CONSTRUCTOR=============
    public function __construct()
    {
       $this->db = new Database;
-      $this->conn = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
    }
 
+   // ============GET RECEIPTS WITH LIMIT==========
    public function getReceiptLimit()
    {
       $this->db->query('SELECT * FROM e_receipt ORDER BY id DESC LIMIT 6');
@@ -17,6 +17,7 @@ class Page
       return $this->db->resultSet();
    }
 
+   // =============ADD RECEIPTS==============
    public function addReceipts($data)
    {
       $user_id = random_num(10);
@@ -47,7 +48,7 @@ class Page
       }
    }
 
-      // Get Receipt by ID
+      // ==============GET RECEIPT BY ID==============
       public function getReceiptId($id)
       {
          $this->db->query('SELECT * FROM e_receipt WHERE id = :id');
@@ -58,33 +59,7 @@ class Page
          return $row;
       }
 
-   public function updateReceipts($data)
-   {
-
-      $this->db->query('UPDATE e_receipt SET date = :date, estate = :estate, received_from = :received_from, sum_of = :sum_of, payment_mode = :payment_mode, payment_for = :payment_for, payment_figure = :payment_figure, no_unit = :no_unit, amount_paid = :amount_paid, outstanding = :outstanding, balance = :balance WHERE id = :id');
-
-      // Bind values
-      $this->db->bind(':id', $data['id']);
-      $this->db->bind(':date', $data['date']);
-      $this->db->bind(':estate', $data['estate']);
-      $this->db->bind(':received_from', $data['received_from']);
-      $this->db->bind(':sum_of', $data['sum_of']);
-      $this->db->bind(':payment_figure', $data['payment_figure']);
-      $this->db->bind(':payment_mode', $data['payment_mode']);
-      $this->db->bind(':payment_for', $data['payment_for']);
-      $this->db->bind(':no_unit', $data['no_unit']);
-      $this->db->bind(':amount_paid', $data['amount_paid']);
-      $this->db->bind(':outstanding', $data['outstanding']);
-      $this->db->bind(':balance', $data['balance']);
-
-      // Execute Query
-      if ($this->db->execute()) {
-         return true;
-      } else {
-         return false;
-      }
-   }
-
+      // =============DELETE================
    public function deleteReceipts($id)
    {
       $this->db->query('DELETE FROM e_receipt WHERE id = :id');
