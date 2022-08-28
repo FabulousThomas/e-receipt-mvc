@@ -5,7 +5,6 @@ class Users extends Controller
 
    public function __construct()
    {
-      // echo 'HELLO FROM USERS';
       $this->userModel = $this->model('User');
    }
 
