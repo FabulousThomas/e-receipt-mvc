@@ -100,6 +100,17 @@ class Pages extends Controller
       $this->view('pages/sharing', $data);
    }
 
+   // =============PREVIEW RECEIPTS===========
+   public function preview($id) {
+      $receipt = $this->pageModel->getReceiptId($id);
+      $data = [
+         'receipt' => $receipt,
+         'title' => 'WELCOME TO PREVIEW PAGE',
+         'description' => 'Preview Page',
+      ];
+      $this->view('pages/preview', $data);
+   }
+
    // ==============DELETE=================
    public function delete($id)
    {
