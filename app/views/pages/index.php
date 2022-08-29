@@ -91,7 +91,7 @@ require APPROOT . '/views/inc/connection.php';
 
                                              <input type="submit" title="Delete <?php echo $res->id; ?>" class="dropdown-item" value="Delete">
                                           </form>
-                                          <a class="dropdown-item" href="./preview.php?id=<?php echo $res->id ?>" target="_blank">View</a>
+                                          <a class="dropdown-item" href="<?php echo URLROOT ?>/pages/preview/<?php echo $res->id ?>" target="_blank">View</a>
                                        </div>
                                     </div>
                                  </td>
@@ -358,8 +358,61 @@ require APPROOT . '/views/inc/connection.php';
    </div>
 
 
+   <!-- Button trigger modal -->
+   <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+      Launch static backdrop modal
+   </button> -->
+
+   <!-- Modal -->
+   <!-- <div class="modal fade" id="staticBackdrop" data-backdrop="static">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+         <div class="modal-content rounded-0 border-primary">
+            <div class="modal-header text-white bg-primary rounded-0 py-2">
+               <h5 class="modal-title" id="staticBackdropLabel"><span class="las la-clipboard-list"></span> Receipt Preview</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="las la-times"></span></button>
+            </div>
+            <div class="modal-body" id="pdf">
+               
+            </div>
+
+            <div class="border-top">
+            <div class="form-group row justify-content-center align-items-center">
+                     <div class="col-md-4">
+                        <button type="button" class="btn btn-primary btn-sm"><span class="las la-print"></span> Print</button>
+                     </div>
+                     <div class="col-md-4">
+                        <p class="d-flex align-items-center justify-content-center text-uppercase mb-0">Share |
+                           <a href="#" class="btn-facebook" target="blank"><i class="lab la-facebook"></i></a>
+                           <a href="#" class="btn-twitter" target="blank"><i class="lab la-twitter"></i></a>
+                           <a href="#" class="btn-whatsapp" target="blank"><i class="lab la-whatsapp"></i></a>
+                        </p>
+                     </div>
+                  </div>
+            </div>
+
+         </div>
+      </div>
+   </div> -->
+
 </div>
 </div>
+
+<style>
+   .col-md-4 p a {
+      font-size: 2rem;
+   }
+   .la-facebook {
+    color: #3b5998;
+}
+
+.la-twitter {
+    color: #1da1f2;
+}
+
+.la-whatsapp {
+    color: #25d366;
+}
+</style>
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>
 
