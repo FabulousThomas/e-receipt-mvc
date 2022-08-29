@@ -14,15 +14,6 @@ a:hover {
 }
 
 body {
-    /* width: 100vw;
-    color: #333;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    margin: 0; */
-    /* background-color: red; */
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
@@ -39,13 +30,6 @@ body {
     letter-spacing: 1px;
 }
 
-.container .form-group {
-    position: relative;
-    text-align: center;
-    margin: 0 auto 8px auto !important;
-    border-radius: 2px;
-}
-
 input[type='text']:focus,
 input[type='text']:active,
 input[type='email'],
@@ -57,13 +41,10 @@ textarea:active {
 }
 
 .container .form-group input {
-    text-align: center;
-    /* font-size: 16px; */
     letter-spacing: 1px;
     color: #333;
-    margin: 0;
     outline: 0ch !important;
-    border-radius: 2px;
+    border-radius: 0;
 }
 
 .container .form-group input:invalid {
@@ -82,7 +63,6 @@ li {
     list-style-type: none;
     padding: 3px 0;
     margin: 0 0 5px;
-    /* border-bottom: 1px solid #fff; */
 }
 
 li label {
