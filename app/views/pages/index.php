@@ -91,7 +91,7 @@ require APPROOT . '/views/inc/connection.php';
 
                                              <input type="submit" title="Delete <?php echo $res->id; ?>" class="dropdown-item" value="Delete">
                                           </form>
-                                          <a class="dropdown-item" href="<?php echo URLROOT ?>/pages/preview/<?php echo $res->id ?>" target="_blank">View</a>
+                                          <a class="dropdown-item" href="<?php echo URLROOT ?>/receipts/preview/<?php echo $res->id ?>" target="_blank">View</a>
                                        </div>
                                     </div>
                                  </td>
@@ -207,21 +207,21 @@ require APPROOT . '/views/inc/connection.php';
                   <div class="form-group mb-2 row">
                      <div class="col-md-6 mb-2">
                         <label for="amount_paid" class="mb-0">Amount paid</label>
-                        <input type="currency" name="amount_paid" class="form-control" id="amount_paid" placeholder="Amount Paid" required onkeypress="javascript: return event.charCode >= 48 && event.charCode <= 57" onkeyup="getValue();">
+                        <input type="text" name="amount_paid" class="form-control" id="amount_paid" placeholder="Amount Paid" required onkeypress="javascript: return event.charCode >= 48 && event.charCode <= 57" onkeyup="getValue();">
                      </div>
                      <div class="col-md-6">
                         <label for="outstanding" class="mb-0">Total Outstanding</label>
-                        <input type="currency" name="outstanding" class="form-control" id="outstanding" placeholder="Outstanding payment" onkeypress="javascript: return event.charCode >= 48 && event.charCode <= 57" onkeyup="getValue();">
+                        <input type="text" name="outstanding" class="form-control" id="total_outstanding" placeholder="Outstanding balance" required onkeypress="javascript: return event.charCode >= 48 && event.charCode <= 57" onkeyup="getValue();">
                      </div>
                   </div>
 
                   <div class="form-group mb-1 row justify-content-center align-items-center">
                      <div class="col-md-6">
                         <label for="balance" class="mb-0">Balance as today</label>
-                        <input type="currency" name="balance" class="form-control" id="balance" placeholder="Auto calculated" onkeyup="getValue();">
+                        <input type="text" name="balance" class="form-control" id="balance" placeholder="Auto calculated" onkeypress="javascript: return event.charCode >= 48 && event.charCode <= 57" onkeyup="getValue();" disabled>
                      </div>
                      <div class="col-md-6">
-                        <label for="balance" class="mb-0"></label>
+                        <label for="btnCreateReceipt" class="mb-0"></label>
                         <button type="submit" name="btnCreateReceipt" class="btn btn-primary btn-md btn-block">Create</button>
                      </div>
                   </div>
@@ -357,62 +357,10 @@ require APPROOT . '/views/inc/connection.php';
       </div>
    </div>
 
-
-   <!-- Button trigger modal -->
-   <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
-      Launch static backdrop modal
-   </button> -->
-
-   <!-- Modal -->
-   <!-- <div class="modal fade" id="staticBackdrop" data-backdrop="static">
-      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-         <div class="modal-content rounded-0 border-primary">
-            <div class="modal-header text-white bg-primary rounded-0 py-2">
-               <h5 class="modal-title" id="staticBackdropLabel"><span class="las la-clipboard-list"></span> Receipt Preview</h5>
-               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="las la-times"></span></button>
-            </div>
-            <div class="modal-body" id="pdf">
-               
-            </div>
-
-            <div class="border-top">
-            <div class="form-group row justify-content-center align-items-center">
-                     <div class="col-md-4">
-                        <button type="button" class="btn btn-primary btn-sm"><span class="las la-print"></span> Print</button>
-                     </div>
-                     <div class="col-md-4">
-                        <p class="d-flex align-items-center justify-content-center text-uppercase mb-0">Share |
-                           <a href="#" class="btn-facebook" target="blank"><i class="lab la-facebook"></i></a>
-                           <a href="#" class="btn-twitter" target="blank"><i class="lab la-twitter"></i></a>
-                           <a href="#" class="btn-whatsapp" target="blank"><i class="lab la-whatsapp"></i></a>
-                        </p>
-                     </div>
-                  </div>
-            </div>
-
-         </div>
-      </div>
-   </div> -->
-
 </div>
 </div>
 
-<style>
-   .col-md-4 p a {
-      font-size: 2rem;
-   }
-   .la-facebook {
-    color: #3b5998;
-}
 
-.la-twitter {
-    color: #1da1f2;
-}
-
-.la-whatsapp {
-    color: #25d366;
-}
-</style>
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>
 
