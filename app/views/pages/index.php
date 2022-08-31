@@ -6,25 +6,27 @@ require APPROOT . '/views/inc/connection.php';
 <?php require APPROOT . '/views/inc/sidebar.php'; ?>
 
 <div class="main-content">
-   <header>
+   <header class="bg-dark text-light">
       <h2>
-         <label for="nav-toggle">
+         <label for="nav-toggle" class="text-light">
             <span class="las la-bars"></span>
-         </label> <span class="name">Dashboard</span>
+         </label> <span class="name text-light">Dashboard</span>
       </h2>
 
       <div class="user-wrapper">
-         <span class="las la-user"></span>
+         <span class="las la-user text-light border-light"></span>
          <div>
 
             <div class="dropdown open">
-               <a class="btn text-uppercase border-primary text-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <a class="btn text-uppercase border-ligh text-light btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <?php if (isset($_SESSION['user_id'])) : ?>
                      <?php echo $_SESSION['user_username'] ?>
                   <?php endif; ?>
                </a>
                <div class="dropdown-menu">
-                  <a class="dropdown-item text-danger" href="<?php echo URLROOT; ?>/users/logout">Logout</a>
+                  <a class="dropdown-item" type="button" href="#"><span class="las la-user-circle border-0 rounded-0"></span> Add New User</a>
+                  <a class="dropdown-item" type="button" href="#"><span class="las la-cog border-0 rounded-0"></span> Settings</a>
+                  <a class="dropdown-item text-danger border-top" href="<?php echo URLROOT; ?>/users/logout"><span class="las la-power-off border-0 rounded-0"></span> Logout</a>
                </div>
             </div>
 
@@ -32,23 +34,21 @@ require APPROOT . '/views/inc/connection.php';
       </div>
    </header>
 
-   <main>
+   <main class="bg-secondary">
       <?php require APPROOT . '/views/inc/cards.php' ?>
 
-      <div class="recent-grid">
          <?php flashMsg('msg'); ?>
-         <div class="projects">
-            <div class="card">
-               <div class="card-header">
+            <div class="card bg-dark text-light mt-5">
+               <div class="card-header d-flex justify-content-between align-items-center border-bottom">
                   <h3>Invoice</h3>
 
-                  <a class="btn btn-primary text-uppercase border-primary text-white btn-sm" type="button" data-toggle="modal" data-target="#createReceipt">Add Receipt <span class="las la-plus"> </span></a>
+                  <a class="btn btn-secondary text-uppercase border-secondary text-light btn-sm" type="button" data-toggle="modal" data-target="#createReceipt">Add Receipt <span class="las la-plus"> </span></a>
 
                </div>
                <div class="card-body">
                   <div class="table-responsive">
-                     <table width="100%">
-                        <thead>
+                     <table width="100%" class="">
+                        <thead class="">
                            <tr>
                               <td>Serial No.</td>
                               <td>User Id</td>
@@ -57,7 +57,7 @@ require APPROOT . '/views/inc/connection.php';
                               <td>Amounts</td>
                            </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="">
 
                            <?php foreach ($data['receipt'] as $res) : ?>
                               <form action="" method="POST" enctype="multipart/form-data">
@@ -81,7 +81,7 @@ require APPROOT . '/views/inc/connection.php';
 
                                  <td>
                                     <div class="dropdown text-dark">
-                                       <button class="btn btn-light text-dark dropdown-toggle" type="button" data-toggle="dropdown" style="font-size: .8rem;">Action</button>
+                                       <a class="btn btn-secondary text-light rounded-1 dropdown-toggle py-1" type="button" data-toggle="dropdown" style="font-size: .8rem;">Action</a>
 
                                        <div class="dropdown-menu shadow py-1" style="font-size: .9rem;">
 
@@ -105,9 +105,6 @@ require APPROOT . '/views/inc/connection.php';
                </div>
                <!-- Card-body END -->
             </div>
-         </div>
-
-      </div>
    </main>
 
    <!-- Modal -->
