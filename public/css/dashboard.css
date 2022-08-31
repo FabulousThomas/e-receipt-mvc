@@ -1,7 +1,7 @@
 :root {
-    --main-color: #007cb7;
-    --color-dark: #1D2231;
-    --color-grey: #8390A2;
+    --main-color: #6c757d;
+    --color-dark: #212529;
+    --color-light: #f8f9fa;
 }
 
 * {
@@ -27,7 +27,7 @@
 .sidebar-brand {
     height: 90px;
     padding: 1.5rem 0rem 1rem 2rem;
-    color: #fff;
+    color: var(--color-light);
     align-items: center;
 }
 
@@ -48,26 +48,18 @@
 
 .sidebar-menu a {
     padding-left: 1rem;
-    display: block;
+    display: flex;
     color: #fff;
-    font-size: 1.1rem;
+    font-size: .9rem;
 }
 
-
-/* .sidebar-menu a.active {
-    background: #fff;
-    padding: .6rem 1rem;
-    color: var(--main-color);
-    border-radius: 30px 0 0 30px;
-} */
-
-.sidebar .sidebar-brand h2 span:last-child,
+.sidebar .sidebar-brand h3 span:last-child,
 .sidebar li a span:last-child {
     display: none;
 }
 
 .sidebar-menu a span:first-child {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     padding-right: 1rem;
     display: inline;
 }
@@ -76,7 +68,7 @@
     width: 270px;
 }
 
-#nav-toggle:checked+.sidebar .sidebar-brand h2 span:last-child,
+#nav-toggle:checked+.sidebar .sidebar-brand h3 span:last-child,
 #nav-toggle:checked+.sidebar li a span:last-child {
     display: inline-block;
 }
@@ -96,7 +88,7 @@
 }
 
 header {
-    background: #fff;
+    /* background: rgb(28, 28, 28); */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -114,12 +106,8 @@ header {
     display: none;
 }
 
-header h2 {
-    color: #222;
-}
-
-header label span {
-    font-size: 1.7rem;
+header h2 span {
+    font-size: 1.6rem;
     padding-right: 1rem;
     cursor: pointer;
 }
@@ -174,18 +162,18 @@ header label span {
 
 .user-wrapper span {
     border-radius: 50%;
-    border: 1px solid var(--color-grey);
-    padding: 5px;
-    margin-right: .5rem;
+    border: 1px solid var(--color-light);
+    padding: 4px;
+    margin-right: .2rem;
 }
 
 .user-wrapper:last-child div:last-child {
     padding-top: -1rem;
 }
 
-.user-wrapper small {
-    display: inline-block;
-    color: var(--color-grey);
+.user-wrapper .dropdown .dropdown-menu a {
+    font-size: .9rem;
+    padding: .3rem .7rem;
 }
 
 main {
@@ -197,7 +185,7 @@ main {
 
 .cards {
     display: grid !important;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 2rem;
     margin-top: .8rem;
 }
@@ -205,43 +193,20 @@ main {
 .card-single {
     display: flex;
     justify-content: space-between;
-    background: #fff;
     padding: 1rem;
     border-radius: 2px;
 }
 
 .card-single div:last-child span {
-    color: var(--main-color);
-    font-size: 1.2rem;
+    font-size: 1.6rem;
 }
 
-.card-single.main-color h1,
-.card-single:last-child div:first-child h1 {
+.card-single h1 {
     font-size: 1.7rem !important;
 }
 
-.card-single div:first-child span {
-    color: var(--color-grey);
-}
-
-.card-single:last-child,
-.card-single.main-color {
-    background: var(--main-color);
-}
-
-.card-single.main-color h1,
-.card-single.main-color div span,
-.card-single:last-child h1,
-.card-single:last-child div:first-child span,
-.card-single:last-child div:last-child span {
-    color: #fff;
-}
-
-.recent-grid {
-    margin-top: 2rem;
-    display: grid;
-    grid-gap: 2rem;
-    /* grid-template-columns: 65% auto; */
+.card-single h1 sup {
+    font-size: 1rem !important;
 }
 
 .card {
@@ -252,23 +217,6 @@ main {
 .card-header,
 .card-body {
     padding: 1rem;
-}
-
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #f0f0f0;
-}
-
-.card-header button {
-    background: var(--main-color);
-    color: #fff;
-    border-radius: 3px;
-    border: var(--main-color);
-    padding: .5rem 1rem;
-    font-size: .8rem;
-    cursor: pointer;
 }
 
 table {
@@ -286,56 +234,19 @@ thead td {
 td {
     padding: .5rem .5rem;
     font-size: .9rem;
-    color: #222;
+    color: #f8f9fa;
 }
 
 #las {
     font-size: .9rem;
     border-radius: 50%;
-    border: 1px solid var(--color-grey);
+    border: 1px solid var(--color-light);
     padding: 3px;
 }
 
 .table-responsive {
     width: 100%;
     overflow-x: auto;
-}
-
-
-/* E-RECEIPT FORM */
-
-.recent-grid #form:first-child .group {
-    display: flex;
-}
-
-.recent-grid #form:first-child .group .select {
-    margin-left: 6rem;
-}
-
-.recent-grid .form-group .form-control,
-.recent-grid #form .form-group select {
-    padding: 5px;
-    border: 1px solid #007cb7;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    margin-left: 1rem;
-    outline: 0ch;
-    font-size: 1.2rem;
-}
-
-.recent-grid .form-group {
-    margin-bottom: 1rem;
-}
-
-.recent-grid .form-group .btn {
-    cursor: pointer;
-    padding: 8px 15px;
-    font-size: 1rem;
-    background-color: #007cb7;
-    border: #007cb7 1px solid;
-    border-radius: 5px;
-    color: #fff;
 }
 
 
