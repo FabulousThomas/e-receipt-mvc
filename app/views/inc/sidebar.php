@@ -1,5 +1,5 @@
 <input type="checkbox" name="" id="nav-toggle">
-<div class="sidebar bg-primary">
+<div class="sidebar bg-dark">
    <div class="sidebar-brand">
       <h2><span class="lab la-accusoft"></span> <span>E-Receipt</span></h2>
    </div>
@@ -9,10 +9,6 @@
             <a href="<?php echo URLROOT; ?>/pages/index" class="active"><span class="las la-igloo"></span>
                <span>Dashboard</span></a>
          </li>
-         <!-- <li>
-            <a href="./form.php"><span class="las la-receipt"></span>
-               <span>New Receipt</span></a>
-         </li> -->
          <li>
             <a href="<?php echo URLROOT; ?>/pages/invoice"><span class="las la-clipboard-list"></span>
                <span>Invoice</span></a>
