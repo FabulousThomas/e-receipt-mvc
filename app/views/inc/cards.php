@@ -1,5 +1,5 @@
 <div class="cards">
-   <div class="card-single bg-dark text-light">
+   <!-- <div class="card-single bg-dark text-light">
       <div>
          <?php foreach ($invoice as $co) { ?>
             <h1><?php echo $co['invoice'] ?></h1>
@@ -9,7 +9,7 @@
       <div>
          <span class="las la-users text-light"></span>
       </div>
-   </div>
+   </div> -->
 
    <div class="card-single bg-dark text-light">
       <div>
@@ -44,7 +44,7 @@
          <span>Outstanding</span>
       </div>
       <div>
-         <!-- <span class="lab la-google-wallet"></span> -->
+         <span class="lab la-google-wallet"></span>
       </div>
    </div>
 
@@ -57,7 +57,7 @@
          <span>Total Income</span>
       </div>
       <div>
-         <!-- <span class="lab la-google-walle"></span> -->
+         <span class="lab la-google-wallet"></span>
       </div>
    </div>
 </div>
