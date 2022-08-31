@@ -1,7 +1,7 @@
 <input type="checkbox" name="" id="nav-toggle">
 <div class="sidebar bg-dark">
    <div class="sidebar-brand">
-      <h2><span class="lab la-accusoft"></span> <span>E-Receipt</span></h2>
+      <h3><span class="lab la-accusoft"></span> <span>E-Receipt</span></h3>
    </div>
    <div class="sidebar-menu">
       <ul>
