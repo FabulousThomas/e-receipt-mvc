@@ -6,7 +6,7 @@
    <div class="sidebar-menu">
       <ul>
          <li>
-            <a href="<?php echo URLROOT; ?>/pages/index" class="active"><span class="las la-igloo"></span>
+            <a href="<?php echo URLROOT; ?>/pages/index"><span class="las la-igloo"></span>
                <span>Dashboard</span></a>
          </li>
          <li>
