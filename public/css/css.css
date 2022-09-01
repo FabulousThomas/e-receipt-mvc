@@ -45,6 +45,7 @@ textarea:active {
     color: #333;
     outline: 0ch !important;
     border-radius: 0;
+    background: transparent !important;
 }
 
 .container .form-group input:invalid {
