@@ -1,4 +1,5 @@
 <?php
+require APPROOT . '/views/inc/connection.php';
 class Users extends Controller
 {
    private $userModel = '';
@@ -113,6 +114,13 @@ class Users extends Controller
             // No user is found
             $data['username_err'] = 'No user found';
          }
+
+         // Insert Login Session
+         // if ($this->userModel->loginSessions($data)) {
+         //    die('SUCCESS');
+         // } else {
+         //    die('Failed to save Login Session');
+         // }
 
          // Make sure errors are empty
          if (empty($data['username_err']) && empty($data['password_err'])) {
