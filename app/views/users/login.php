@@ -1,6 +1,6 @@
 <?php
 require APPROOT . '/views/inc/header.php';
-require APPROOT . '/views/inc/connection.php';
+// require APPROOT . '/views/inc/connection.php';
 ?>
 
 <style>
