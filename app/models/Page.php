@@ -17,6 +17,14 @@ class Page
       return $this->db->resultSet();
    }
 
+   // ============GET ALL RECEIPTS==========
+   public function getAllReceipt()
+   {
+      $this->db->query('SELECT * FROM e_receipt ORDER BY id DESC');
+
+      return $this->db->resultSet();
+   }
+
    // =============ADD RECEIPTS==============
    public function addReceipts($data)
    {
@@ -48,18 +56,18 @@ class Page
       }
    }
 
-      // ==============GET RECEIPT BY ID==============
-      public function getReceiptId($id)
-      {
-         $this->db->query('SELECT * FROM e_receipt WHERE id = :id');
-         $this->db->bind(':id', $id);
-   
-         $row = $this->db->singleSet();
-   
-         return $row;
-      }
+   // ==============GET RECEIPT BY ID==============
+   public function getReceiptId($id)
+   {
+      $this->db->query('SELECT * FROM e_receipt WHERE id = :id');
+      $this->db->bind(':id', $id);
 
-      // =============DELETE================
+      $row = $this->db->singleSet();
+
+      return $row;
+   }
+
+   // =============DELETE================
    public function deleteReceipts($id)
    {
       $this->db->query('DELETE FROM e_receipt WHERE id = :id');
@@ -71,5 +79,12 @@ class Page
       } else {
          return false;
       }
+   }
+
+   // ===========GET LOGIN SESSIONS=======
+   public function getLoginSessions() {
+      $this->db->query('SELECT * FROM login_sessions ORDER BY id DESC');
+
+      return $this->db->resultSet();
    }
 }
