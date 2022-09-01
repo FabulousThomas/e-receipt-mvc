@@ -63,7 +63,9 @@ class Pages extends Controller
    // ==============INVOICE PAGE================
    public function invoice()
    {
+      $receipt = $this->pageModel->getAllReceipt();
       $data = [
+         'receipt' => $receipt,
          'title' => 'WELCOME TO INVOICE PAGE',
          'description' => 'Invoice Page',
       ];
@@ -83,7 +85,9 @@ class Pages extends Controller
    // ================SESSION PAGE=============
    public function sessions()
    {
+      $sessions = $this->pageModel->getLoginSessions();
       $data = [
+         'loginSession' => $sessions,
          'title' => 'WELCOME TO SESSIONS PAGE',
          'description' => 'Sessions Page',
       ];
