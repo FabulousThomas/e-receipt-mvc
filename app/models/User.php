@@ -42,6 +42,29 @@ class User
       }
    }
 
+   // ======LOGIN SESSIONS===========
+   public function getLoginSessions($username, $password)
+   {
+      $this->db->query('SELECT * FROM users WHERE username = :username');
+      $this->db->bind(':username', $username);
+
+      $row = $this->db->singleSet();
+
+      $user_id = $row->user_id;
+      $user_name = $row->username;
+      $hashed_password = $row->password;
+
+      $this->db->query('INSERT INTO login_sessions(user_id, username) VALUES (:user_id, :username)');
+      $this->db->bind(':user_id', $user_id);
+      $this->db->bind(':username', $user_name);
+
+      if (password_verify($password, $hashed_password) && $this->db->execute()) {
+         return true;
+      } else {
+         return false;
+      }
+   }
+
    // Check email
    public function checkEmail($email)
    {
