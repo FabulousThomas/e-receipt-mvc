@@ -1,3 +1,4 @@
+<?php require APPROOT . '/views/inc/connection.php'; ?>
 <div class="cards">
    <!-- <div class="card-single bg-dark text-light">
       <div>
