@@ -115,18 +115,14 @@ class Users extends Controller
             $data['username_err'] = 'No user found';
          }
 
-         // Insert Login Session
-         // if ($this->userModel->loginSessions($data)) {
-         //    die('SUCCESS');
-         // } else {
-         //    die('Failed to save Login Session');
-         // }
-
          // Make sure errors are empty
          if (empty($data['username_err']) && empty($data['password_err'])) {
             // Validate (passed)
             // die('SUCCESS');
             $loginUser = $this->userModel->login($data['username'], $data['password']);
+
+            // Gets and insert Login sessions
+            $this->userModel->getLoginSessions($data['username'], $data['password']);
 
             if ($loginUser) {
                // Create login session
