@@ -161,10 +161,8 @@ header h2 span {
 }
 
 .user-wrapper span {
-    border-radius: 50%;
-    border: 1px solid var(--color-light);
     padding: 4px;
-    margin-right: .2rem;
+    font-size: 1rem;
 }
 
 .user-wrapper:last-child div:last-child {
