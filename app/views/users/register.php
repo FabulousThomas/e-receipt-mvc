@@ -35,7 +35,7 @@
          </div>
          <div class="row">
             <div class="col">
-            <button type="submit" name="login_btn" class="btn btn-primary rounded-0 btn-block" id="submit">Register</button>
+            <button type="submit" name="register_btn" class="btn btn-primary rounded-0 btn-block" id="submit">Register</button>
             </div>
             <div class="col">
            <a href="<?php echo URLROOT;?>/users/login" class="btn btn-light rounded-0" style="font-size: .9rem ;">Have an account? Login</a>
