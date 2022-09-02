@@ -13,7 +13,7 @@ require APPROOT . '/views/inc/header.php';
       <?php flashMsg('msg'); ?>
       <div class="card bg-dark text-light mt-5">
          <div class="card-header d-flex justify-content-between align-items-center border-bottom">
-            <h3>Invoice</h3>
+            <h3>Sessions</h3>
 
             <form action="" method="post">
                <input type="text" name="search" id="search" class="form-control bg-transparent text-light" placeholder="Search here...">
