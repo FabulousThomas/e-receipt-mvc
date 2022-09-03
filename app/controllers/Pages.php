@@ -116,4 +116,14 @@ class Pages extends Controller
          }
       }
    }
+
+   public function deleteLoginSessions($id)
+   {
+      if ($this->pageModel->deleteSession($id)) {
+         flashMsg('msg', 'Session deleted', 'alert alert-danger');
+         redirect('pages/sessions');
+      } else {
+         die('Failed to delete');
+      }
+   }
 }
