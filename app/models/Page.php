@@ -67,7 +67,7 @@ class Page
       return $row;
    }
 
-   // =============DELETE================
+   // =============DELETE RECEIPTS================
    public function deleteReceipts($id)
    {
       $this->db->query('DELETE FROM e_receipt WHERE id = :id');
@@ -80,6 +80,20 @@ class Page
          return false;
       }
    }
+
+     // =============DELETE LOGIN SESSIONS================
+     public function deleteSession($id)
+     {
+        $this->db->query('DELETE FROM login_sessions WHERE id = :id');
+  
+        $this->db->bind(':id', $id);
+  
+        if ($this->db->execute()) {
+           return true;
+        } else {
+           return false;
+        }
+     }
 
    // ===========GET LOGIN SESSIONS=======
    public function getLoginSessions() {
