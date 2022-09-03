@@ -10,7 +10,10 @@ require APPROOT . '/views/inc/header.php';
    <main class="bg-secondary">
       <?php require APPROOT . '/views/inc/cards.php' ?>
 
+      <div class="container mt-5">
       <?php flashMsg('msg'); ?>
+      </div>
+      
       <div class="card bg-dark text-light mt-5">
          <div class="card-header d-flex justify-content-between align-items-center border-bottom">
             <h3>Sessions</h3>
@@ -33,13 +36,15 @@ require APPROOT . '/views/inc/header.php';
                   </thead>
                   <tbody class="">
 
-                     <?php foreach ($data['loginSession'] as $res) : ?>
+                     <?php
+                     $i = 1;
+                     foreach ($data['loginSession'] as $res) : ?>
                         <form action="" method="POST" enctype="multipart/form-data">
                            <input type="text" hidden id="id" value="<?php echo $res->id; ?>">
                         </form>
 
                         <tr>
-                        <td class="name"><?php $i = 1; echo $i++; ?></td>
+                        <td class="name"><?php echo $i++; ?></td>
                            <td class="name"><?php echo $res->user_id ?></td>
                            <td class="name"><?php echo $res->username ?></td>
                            <td class="name"><?php echo $res->date ?></td>
@@ -49,14 +54,10 @@ require APPROOT . '/views/inc/header.php';
                                  <a class="btn btn-secondary text-light rounded-1 dropdown-toggle py-1" type="button" data-toggle="dropdown" style="font-size: .8rem;">Action</a>
 
                                  <div class="dropdown-menu shadow py-1" style="font-size: .9rem;">
-
-                                    <a class="dropdown-item editReceipt" type="button">Edit</a>
-
-                                    <form action="<?php echo URLROOT ?>/pages/delete/<?php echo $res->id ?>" method="POST" enctype="multipart/form-data">
+                                    <form action="<?php echo URLROOT ?>/pages/deleteLoginSessions/<?php echo $res->id ?>" method="POST" enctype="multipart/form-data">
 
                                        <input type="submit" title="Delete <?php echo $res->id; ?>" class="dropdown-item" value="Delete">
                                     </form>
-                                    <a class="dropdown-item" href="<?php echo URLROOT ?>/receipts/preview/<?php echo $res->id ?>" target="_blank">View</a>
                                  </div>
                               </div>
                            </td>
