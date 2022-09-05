@@ -97,7 +97,12 @@ class Pages extends Controller
    // ==============SHARING PAGE===============
    public function sharing()
    {
+      if($_SERVER['REQUEST_METHOD'] == 'POST') {
+         die('SHARING FORM');
+      }
+      $sharing = $this->pageModel->getSharing();
       $data = [
+         'sharing' => $sharing,
          'title' => 'WELCOME TO SHARING PAGE',
          'description' => 'Sharing Page',
       ];
