@@ -11,21 +11,21 @@ require APPROOT . '/views/inc/header.php';
       <?php require APPROOT . '/views/inc/cards.php' ?>
 
       <div class="container mt-5">
-      <?php flashMsg('msg'); ?>
+         <?php flashMsg('msg'); ?>
       </div>
-      
+
       <div class="card bg-dark text-light mt-5">
          <div class="card-header d-flex justify-content-between align-items-center border-bottom">
             <h3>Sessions</h3>
 
-            <form action="" method="post">
+            <div>
                <input type="text" name="search" id="search" class="form-control bg-transparent text-light" placeholder="Search here...">
-            </form>
+            </div>
 
          </div>
          <div class="card-body">
             <div class="table-responsive">
-               <table width="100%" class="">
+               <table width="100%" id="table">
                   <thead class="">
                      <tr>
                         <td>#</td>
@@ -44,12 +44,12 @@ require APPROOT . '/views/inc/header.php';
                         </form>
 
                         <tr>
-                        <td class="name"><?php echo $i++; ?></td>
+                           <td class="name"><?php echo $i++; ?></td>
                            <td class="name"><?php echo $res->user_id ?></td>
                            <td class="name"><?php echo $res->username ?></td>
                            <td class="name"><?php echo $res->date ?></td>
 
-                           <td>
+                           <!-- <td>
                               <div class="dropdown text-dark">
                                  <a class="btn btn-secondary text-light rounded-1 dropdown-toggle py-1" type="button" data-toggle="dropdown" style="font-size: .8rem;">Action</a>
 
@@ -60,7 +60,7 @@ require APPROOT . '/views/inc/header.php';
                                     </form>
                                  </div>
                               </div>
-                           </td>
+                           </td> -->
 
                         </tr>
                      <?php endforeach ?>
