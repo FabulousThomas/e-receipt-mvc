@@ -67,6 +67,13 @@ class Page
       return $row;
    }
 
+   // ============GET SHARING===================
+   public function getSharing() {
+      $this->db->query('SELECT * FROM sharing ORDER BY id DESC');
+
+      return $this->db->resultSet();
+   }
+
    // =============DELETE RECEIPTS================
    public function deleteReceipts($id)
    {
