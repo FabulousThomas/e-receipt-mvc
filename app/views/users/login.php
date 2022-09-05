@@ -16,6 +16,9 @@ require APPROOT . '/views/inc/header.php';
 
 <body>
    <div class="container">
+      <div class="container mt-5">
+         <?php flashMsg('msg'); ?>
+      </div>
       <div class="row">
          <div class="col-lg-5 col-md-12 mx-auto p-0">
             <div class="card card-body rounded-0 border-0 bg-light p-2 mt-5">
