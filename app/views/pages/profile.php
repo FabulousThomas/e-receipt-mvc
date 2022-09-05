@@ -15,9 +15,9 @@ require APPROOT . '/views/inc/header.php';
          <div class="card-header d-flex justify-content-between align-items-center border-bottom">
             <h3>Customers</h3>
 
-            <form action="" method="post">
+            <div>
                <input type="text" name="search" id="search" class="form-control bg-transparent text-light" placeholder="Search here...">
-            </form>
+            </div>
 
          </div>
          <div>
@@ -25,7 +25,7 @@ require APPROOT . '/views/inc/header.php';
          </div>
          <!-- <div class="card-body">
             <div class="table-responsive">
-               <table width="100%" class="">
+               <table width="100%" id="table">
                   <thead class="">
                      <tr>
                         <td>Serial No.</td>
