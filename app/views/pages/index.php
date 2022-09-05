@@ -10,7 +10,10 @@ require APPROOT . '/views/inc/header.php';
    <main class="bg-secondary">
       <?php require APPROOT . '/views/inc/cards.php' ?>
 
-      <?php flashMsg('msg'); ?>
+      <div class="container mt-5">
+         <?php flashMsg('msg'); ?>
+      </div>
+
       <div class="card bg-dark text-light mt-5">
          <div class="card-header d-flex justify-content-between align-items-center border-bottom">
             <h3>Recent</h3>
@@ -187,18 +190,18 @@ require APPROOT . '/views/inc/header.php';
                   <div class="form-group mb-2 row">
                      <div class="col-md-6 mb-2">
                         <label for="amount_paid" class="mb-0">Amount paid</label>
-                        <input type="text" name="amount_paid" class="form-control" id="amount_paid" placeholder="Amount Paid" required onkeypress="javascript: return event.charCode >= 48 && event.charCode <= 57" onkeyup="getValue();">
+                        <input type="currency" name="amount_paid" class="form-control" id="amount_paid" placeholder="Amount Paid" required onkeypress="javascript: return event.charCode >= 48 && event.charCode <= 57" onkeyup="getValue(this.value);">
                      </div>
                      <div class="col-md-6">
                         <label for="outstanding" class="mb-0">Total Outstanding</label>
-                        <input type="text" name="outstanding" class="form-control" id="total_outstanding" placeholder="Outstanding balance" required onkeypress="javascript: return event.charCode >= 48 && event.charCode <= 57" onkeyup="getValue();">
+                        <input type="currency" name="outstanding" class="form-control" id="total_outstanding" placeholder="Outstanding balance" required onkeypress="javascript: return event.charCode >= 48 && event.charCode <= 57" onkeyup="getValue(this.value);">
                      </div>
                   </div>
 
                   <div class="form-group mb-1 row justify-content-center align-items-center">
                      <div class="col-md-6">
                         <label for="balance" class="mb-0">Balance as today</label>
-                        <input type="text" name="balance" class="form-control" id="balance" placeholder="Auto calculated" onkeypress="javascript: return event.charCode >= 48 && event.charCode <= 57" onkeyup="getValue();" disabled>
+                        <input type="currency" name="balance" class="form-control" id="balance" placeholder="Auto calculated" onkeypress="javascript: return event.charCode >= 48 && event.charCode <= 57" onkeyup="getValue(this.value);" disabled>
                      </div>
                      <div class="col-md-6">
                         <label for="btnCreateReceipt" class="mb-0"></label>
