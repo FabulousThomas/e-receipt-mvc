@@ -12,6 +12,10 @@ class Users extends Controller
    // Load Register view
    public function register()
    {
+      if(!isLoggedIn()) {
+         flashMsg('msg', 'The URL is not accessible!');
+         redirect('users/login');
+      }
       // Check for Request
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          // Process form
@@ -56,8 +60,8 @@ class Users extends Controller
             $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
             if ($this->userModel->register($data)) {
                // redirect user
-               flashMsg('register_success', '<strong>Congratulations, ' . $data['username'] . '!' . ' </strong> Proceed to login');
-               redirect('users/login');
+               flashMsg('msg', '<strong>Congratulations,' . '!' . ' </strong> New user is created.');
+               redirect('pages/index');
             } else {
                die('Something went wrong');
             }
