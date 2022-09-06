@@ -73,13 +73,13 @@ class Pages extends Controller
    }
 
    // ===============PROFILE PAGE===============
-   public function profile()
+   public function customers()
    {
       $data = [
          'title' => 'WELCOME TO PROFILE PAGE',
          'description' => 'Profile Page',
       ];
-      $this->view('pages/profile', $data);
+      $this->view('pages/customers', $data);
    }
 
    // ================SESSION PAGE=============
@@ -97,8 +97,29 @@ class Pages extends Controller
    // ==============SHARING PAGE===============
    public function sharing()
    {
+      // Sanitize inputs
+      $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
       if($_SERVER['REQUEST_METHOD'] == 'POST') {
-         die('SHARING FORM');
+         $data = [
+            'info' => trim($_POST['info']),
+            'amount' => trim($_POST['amount']),
+            'dircom' => trim($_POST['dircom']),
+            'level-one' => trim($_POST['level-one']),
+            'level-two' => trim($_POST['level-two']),
+            'business-invest' => trim($_POST['business-invest']),
+            'office-cost' => trim($_POST['office-cost']),
+            'business-savings' => trim($_POST['business-savings']),
+            'director-share' => trim($_POST['director-share']),
+            'ceo' => trim($_POST['ceo']),
+            'gm' => trim($_POST['gm']),
+            'md' => trim($_POST['md']),   
+         ];
+         if($this->pageModel->addSharing($data)) {
+            flashMsg('msg', 'Record added', 'alert alert-success');
+            redirect('pages/sharing/#records');
+         } else {
+            die('Something went wrong');
+         }
       }
       $sharing = $this->pageModel->getSharing();
       $data = [
