@@ -14,7 +14,7 @@
                <span>Invoice</span></a>
          </li>
          <li>
-            <a href="<?php echo URLROOT; ?>/pages/profile"><span class="las la-user"></span>
+            <a href="<?php echo URLROOT; ?>/pages/customers"><span class="las la-user"></span>
                <span>Customer Profile</span></a>
          </li>
          <li>
