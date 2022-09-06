@@ -15,12 +15,12 @@
                   <h2 class="text-center my-4">SALES VALUE</h2>
 
                   <div class="form-group">
-                     <label for="description" class="m-0">Sharing Description</label>
-                    <input type="text" name="description" id="" class="form-control" placeholder="SHARING DESCRIPTION" required>
+                     <label for="info" class="m-0">Sharing Description</label>
+                     <input type="text" name="info" id="" class="form-control" placeholder="SHARING DESCRIPTION" required>
                   </div>
 
                   <div class="form-group">
-                  <label for="amount" class="m-0">Sharing Amount</label>
+                     <label for="amount" class="m-0">Sharing Amount</label>
                      <input type="currency" name="amount" class="form-control text-light" id="sales-input" placeholder="ENTER VALUE" spellcheck="false" required autocomplete="off" onkeyup="sharePercentage(this.value);" onkeypress="javascript: return event.charCode >= 48 && event.charCode <= 57">
                   </div>
                   <!-- ======================== -->
@@ -90,11 +90,12 @@
                </form>
             </div>
          </div>
-
-
       </div>
 
-      <div class="card bg-dark text-light">
+      <div class="container mt-5">
+         <?php flashMsg('msg'); ?>
+      </div>
+      <div class="card bg-dark text-light" id="records">
          <div class="card-header d-flex justify-content-between align-items-center">
             <h3>Shares</h3>
 
@@ -108,7 +109,8 @@
                   <thead>
                      <tr>
                         <td>Id</td>
-                        <td>Date</td>
+                        <!-- <td>Date</td> -->
+                        <td>Info</td>
                         <td>Amount</td>
                         <td>Dir Comm</td>
                         <td>1st Level</td>
@@ -130,7 +132,8 @@
                         </form>
                         <tr>
                            <td><?php echo $res->share_id ?></td>
-                           <td><?php echo $res->date ?></td>
+                           <!-- <td><?php echo $res->date ?></td> -->
+                           <td><?php echo $res->info ?></td>
                            <td><?php echo $res->amount ?></td>
                            <td><?php echo $res->direct_com ?></td>
                            <td><?php echo $res->level_one ?></td>
