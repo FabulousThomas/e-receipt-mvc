@@ -67,8 +67,37 @@ class Page
       return $row;
    }
 
+   // ===========ADD SHARING===================
+   public function addSharing($data)
+   {
+      $share_id = random_num(10);
+      $this->db->query('INSERT INTO sharing (share_id, info, amount, direct_com, level_one, level_two, business_invest, office_cost, business_savings, director_share, ceo, general_man, managing_direct) VALUES (:share_id, :info, :amount, :direct_com, :level_one, :level_two, :business_invest, :office_cost, :business_savings, :director_share, :ceo, :general_man, :managing_direct)');
+
+      // Bind values
+      $this->db->bind(':share_id', $share_id);
+      $this->db->bind(':info', $data['info']);
+      $this->db->bind(':amount', $data['amount']);
+      $this->db->bind(':direct_com', $data['dircom']);
+      $this->db->bind(':level_one', $data['level-one']);
+      $this->db->bind(':level_two', $data['level-two']);
+      $this->db->bind(':business_invest', $data['business-invest']);
+      $this->db->bind(':office_cost', $data['office-cost']);
+      $this->db->bind(':business_savings', $data['business-savings']);
+      $this->db->bind(':director_share', $data['director-share']);
+      $this->db->bind(':ceo', $data['ceo']);
+      $this->db->bind(':general_man', $data['gm']);
+      $this->db->bind(':managing_direct', $data['md']);
+
+      if ($this->db->execute()) {
+         return true;
+      } else {
+         return false;
+      }
+   }
+
    // ============GET SHARING===================
-   public function getSharing() {
+   public function getSharing()
+   {
       $this->db->query('SELECT * FROM sharing ORDER BY id DESC');
 
       return $this->db->resultSet();
@@ -88,22 +117,23 @@ class Page
       }
    }
 
-     // =============DELETE LOGIN SESSIONS================
-     public function deleteSession($id)
-     {
-        $this->db->query('DELETE FROM login_sessions WHERE id = :id');
-  
-        $this->db->bind(':id', $id);
-  
-        if ($this->db->execute()) {
-           return true;
-        } else {
-           return false;
-        }
-     }
+   // =============DELETE LOGIN SESSIONS================
+   public function deleteSession($id)
+   {
+      $this->db->query('DELETE FROM login_sessions WHERE id = :id');
+
+      $this->db->bind(':id', $id);
+
+      if ($this->db->execute()) {
+         return true;
+      } else {
+         return false;
+      }
+   }
 
    // ===========GET LOGIN SESSIONS=======
-   public function getLoginSessions() {
+   public function getLoginSessions()
+   {
       $this->db->query('SELECT * FROM login_sessions ORDER BY id DESC');
 
       return $this->db->resultSet();
