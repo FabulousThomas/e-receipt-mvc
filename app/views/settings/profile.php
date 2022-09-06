@@ -21,7 +21,7 @@
 
    <style>
       input {
-         color: #f8f9fa !important;
+         color: #f8f9fa ;
       }
    </style>
    <?php require APPROOT . '/views/inc/footer.php' ?>
