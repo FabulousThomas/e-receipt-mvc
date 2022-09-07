@@ -42,3 +42,9 @@ if (isset($_POST['btnUpdateReceipt'])) {
       die('Unable to update' . mysqli_error($conn));
    }
 }
+
+// $sql = "SELECT role FROM login_sessions WHERE role = 'admin'";
+// $role = $conn->query($sql);
+
+
+
