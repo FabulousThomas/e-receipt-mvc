@@ -138,4 +138,14 @@ class Page
 
       return $this->db->resultSet();
    }
+
+   // public function getLoginRole($id)
+   // {
+   //    $this->db->query("SELECT * FROM login_sessions WHERE id = :id");
+   //    $this->db->bind(':id', $id);
+
+   //    $row = $this->db->singleSet();
+
+   //    return $row;
+   // }
 }
