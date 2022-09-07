@@ -31,6 +31,7 @@ require APPROOT . '/views/inc/header.php';
                         <td>#</td>
                         <td>User Id</td>
                         <td>Username</td>
+                        <!-- <td>Role</td> -->
                         <td>Dates</td>
                      </tr>
                   </thead>
@@ -47,6 +48,7 @@ require APPROOT . '/views/inc/header.php';
                            <td class="name"><?php echo $i++; ?></td>
                            <td class="name"><?php echo $res->user_id ?></td>
                            <td class="name"><?php echo $res->username ?></td>
+                           <!-- <td class="name"><?php echo $res->role ?></td> -->
                            <td class="name"><?php echo $res->date ?></td>
 
                            <!-- <td>
