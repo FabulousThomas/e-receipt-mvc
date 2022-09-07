@@ -25,9 +25,11 @@ class Users extends Controller
          $data = [
             'email' => trim($_POST['email']),
             'username' => trim($_POST['username']),
+            // 'role' => trim($_POST['role']),
             'password' => trim($_POST['password']),
             'email_err' => '',
             'username_err' => '',
+            // 'role_err' => '',
             'password_err' => '',
          ];
 
@@ -74,9 +76,11 @@ class Users extends Controller
          $data = [
             'email' => '',
             'username' => '',
+            // 'role' => '',
             'password' => '',
             'email_err' => '',
             'username_err' => '',
+            // 'role_err' => '',
             'password_err' => '',
          ];
          // Load View
