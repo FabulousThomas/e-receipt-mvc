@@ -15,6 +15,23 @@
                   <small class="invalid-feedback"><?php echo $data['username_err']; ?></small>
                </div>
 
+               <!-- <div class="form-group mb-3">
+                  <?php
+                  $options = array('Select Role', 'Admin', 'User');
+                  $selected = $options[0];
+                  echo "<select name='role' class='custom-select' required>";
+                  foreach ($options as $opt) {
+                     if ($selected === $opt) {
+                        echo '<option disabled selected value="' . $opt . '">' . $opt . '</option>';
+                     } else {
+                        echo '<option value="' . $opt . '">' . $opt . '</option>';
+                     }
+                  }
+                  echo '<select>';
+                  ?>
+                  <small class="invalid-feedback"><?php echo $data['role_err']; ?></small>
+               </div> -->
+
                <div class="form-group mb-3">
                   <input type="email" name="email" class="form-control <?php echo (!empty($data['email_err'])) ? 'is-invalid' : ''; ?>" placeholder="EMAIL" value="<?php echo $data['email']; ?>" spellcheck="false" autocomplete="off">
                   <small class="invalid-feedback"><?php echo $data['email_err']; ?></small>
