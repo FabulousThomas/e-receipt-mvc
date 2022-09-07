@@ -85,9 +85,13 @@ class Pages extends Controller
    // ================SESSION PAGE=============
    public function sessions()
    {
+      // require_once APPROOT . '/views/inc/connection.php';
+      // $id = '';
       $sessions = $this->pageModel->getLoginSessions();
+      // $role = $this->pageModel->getLoginRole($id);
       $data = [
          'loginSession' => $sessions,
+         // 'role' => $role,
          'title' => 'WELCOME TO SESSIONS PAGE',
          'description' => 'Sessions Page',
       ];
