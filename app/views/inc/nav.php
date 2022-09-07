@@ -16,9 +16,9 @@
                <?php endif; ?>
             </a>
             <div class="dropdown-menu bg-light border-1 rounded-0">
-               <a class="dropdown-item" type="button" href="<?php echo URLROOT; ?>/settings/profile"><span class="las la-user border-0 rounded-0"></span> Profile</a>
+               <!-- <a class="dropdown-item" type="button" href="<?php echo URLROOT; ?>/settings/profile"><span class="las la-user border-0 rounded-0"></span> Profile</a> -->
                <a class="dropdown-item" type="button" href="<?php echo URLROOT; ?>/users/register"><span class="las la-users border-0 rounded-0"></span> Add Users</a>
-               <a class="dropdown-item" type="button" href="<?php echo URLROOT; ?>/settings/setting"><span class="las la-cog border-0 rounded-0"></span> Settings</a>
+               <!-- <a class="dropdown-item" type="button" href="<?php echo URLROOT; ?>/settings/setting"><span class="las la-cog border-0 rounded-0"></span> Settings</a> -->
                <a class="dropdown-item text-danger border-top" href="<?php echo URLROOT; ?>/users/logout"><span class="las la-power-off border-0 rounded-0"></span> Logout</a>
             </div>
          </div>
