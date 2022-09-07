@@ -1,5 +1,12 @@
 <?php 
 class Settings extends Controller {
+
+   public function __construct()
+   {
+      if(!isLoggedIn()) {
+         redirect('users/login');
+      }
+   }
    public function setting() {
       $data = [
          'title' => 'Settings',
