@@ -15,6 +15,7 @@ class User
       // Bind values
       $this->db->bind(':user_id', $user_id);
       $this->db->bind(':username', $data['username']);
+      $this->db->bind(':role', $data['role']);
       $this->db->bind(':email', $data['email']);
       $this->db->bind(':password', $data['password']);
 
@@ -52,11 +53,13 @@ class User
 
       $user_id = $row->user_id;
       $user_name = $row->username;
+      // $role = $row->role;
       $hashed_password = $row->password;
 
       $this->db->query('INSERT INTO login_sessions(user_id, username) VALUES (:user_id, :username)');
       $this->db->bind(':user_id', $user_id);
       $this->db->bind(':username', $user_name);
+      // $this->db->bind(':role', $role);
 
       if (password_verify($password, $hashed_password) && $this->db->execute()) {
          return true;
