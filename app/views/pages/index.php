@@ -224,7 +224,7 @@ require APPROOT . '/views/inc/header.php';
 
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>
-
+<script src="<?php echo URLROOT; ?>/js/currency.js"></script>
 <script>
    $(document).ready(function() {
       $('.editReceipt').on('click', function() {
