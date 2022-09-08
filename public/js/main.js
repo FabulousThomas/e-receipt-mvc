@@ -1,30 +1,34 @@
 // alert('Hello JS FILE');
 
 // CALCULATION
-function getValue(value) {
-    //  var outstanding = document.form.total_outstanding.value;
-    //  var outstanding = +outstanding;
-    //  var amount = document.form.amount_paid.value;
-    //  var amount = +amount;
-    //  var balance = amount - outstanding;
-    //  document.getElementById('balance').value = balance.toLocaleString();
 
-
-    // var outstanding = outstanding;
-    // var outstanding = document.getElementById('total_outstanding').value;
-    // var amount = amount;
-    // var amount = document.getElementById('amount_paid').value;
-    // var balance = amount - outstanding;
-    // document.getElementById('balance').value = balance.toLocaleString();
-
-    var amount = value - value;
-    var outstanding = value - value;
+function getValue() {
+    var outstanding = document.form.total_outstanding.value;
+    var outstanding = +outstanding;
+    var amount = document.form.amount_paid.value;
+    var amount = +amount;
     var balance = amount - outstanding;
-    document.getElementById('amount_paid').value;
-    document.getElementById('total_outstanding').value;
     document.getElementById('balance').value = balance.toLocaleString();
-
 }
+
+
+// function getValue() {
+//     //  var outstanding = document.form.total_outstanding.value;
+//     //  var outstanding = +outstanding;
+//     //  var amount = document.form.amount_paid.value;
+//     //  var amount = +amount;
+//     //  var balance = amount - outstanding;
+//     //  document.getElementById('balance').value = balance.toLocaleString();
+
+
+//     outstanding = outstanding;
+//     outstanding = document.getElementById('total_outstanding').value;
+//     amount = amount;
+//     amount = document.getElementById('amount_paid').value;
+//     balance = amount - outstanding;
+//     document.getElementById('balance').value = balance.toLocaleString();
+
+// }
 
 // $(document).keyup(function() {
 //     var amount = +$('#amount_paid').val().toLocaleString();
