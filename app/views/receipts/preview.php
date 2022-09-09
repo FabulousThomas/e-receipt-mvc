@@ -107,7 +107,7 @@
             <button onclick="document.location.href = 'preview.php'" download="Receipt.pdf" id="printpdf">Download <span class="las la-download" id="las "></span></button>
          </div>
          <div>
-            <p>Share
+            <p style="display: flex; justify-content: center; align-items: center;">Share |
                <a href="#" class="btn-facebook" target="blank"><i class="lab la-facebook"></i></a>
                <a href="#" class="btn-twitter" target="blank"><i class="lab la-twitter"></i></a>
                <a href="#" class="btn-whatsapp" target="blank"><i class="lab la-whatsapp"></i></a>
