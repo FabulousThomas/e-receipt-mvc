@@ -2,16 +2,6 @@
 
 // CALCULATION
 
-function getValue() {
-    var outstanding = document.form.total_outstanding.value;
-    var outstanding = +outstanding;
-    var amount = document.form.amount_paid.value;
-    var amount = +amount;
-    var balance = amount - outstanding;
-    document.getElementById('balance').value = balance.toLocaleString();
-}
-
-
 // function getValue() {
 //     //  var outstanding = document.form.total_outstanding.value;
 //     //  var outstanding = +outstanding;
@@ -30,16 +20,16 @@ function getValue() {
 
 // }
 
-// $(document).keyup(function() {
-//     var amount = +$('#amount_paid').val().toLocaleString();
-//     var outstanding = +$('#total_outstanding').val().toLocaleString();
-//     // total = amount - outstanding;
-//     var total = amount - outstanding;
-//     $('#balance').val(total);
+$(document).keyup(function() {
+    // var amount = +$('#amount_paid').val().toLocaleString();
+    // var outstanding = +$('#total_outstanding').val().toLocaleString();
+    // // total = amount - outstanding;
+    // var total = amount - outstanding;
+    // $('#balance').val(total).toLocaleString();
 
-//     // total = $('#amount_paid').val() - $('#total_outstanding').val();
-//     // $('#balance').val(total).toLocaleString();
-// });
+    total = $('#amount_paid').val() - $('#total_outstanding').val();
+    $('#balance').val(total).toLocaleString();
+});
 
 // ==========PRINT RECEIPT================
 function printpdf() {
@@ -73,3 +63,21 @@ function sharePercentage(value) {
     document.getElementById('gm').value = gm.toLocaleString();
     document.getElementById('md').value = md.toLocaleString();
 }
+
+// ===========SHARE RECEIPT OPTION============
+const facebookBtn = document.querySelector(".btn-facebook");
+const twitterBtn = document.querySelector(".btn-twitter");
+const whatsappBtn = document.querySelector(".btn-whatsapp");
+
+function init() {
+    let postUrl = encodeURI(document.location.href);
+    let postTitle = encodeURI("Hi, please download receipt with the link below");
+
+    facebookBtn.setAttribute("href", `https://www.facebook.com/sharer.php?u=${postUrl}`);
+
+    twitterBtn.setAttribute("href", `https://twitter.com/share?url=${postUrl}&text=${postTitle}&via=[via]&hashtags=[hashtags]`);
+
+    whatsappBtn.setAttribute("href", `https://api.whatsapp.com/send?text=${postTitle} ${postUrl}`);
+}
+
+init();
