@@ -1,5 +1,3 @@
-// alert('Hello JS FILE');
-
 // CALCULATION
 
 // function getValue() {
@@ -10,13 +8,6 @@
 //     //  var balance = amount - outstanding;
 //     //  document.getElementById('balance').value = balance.toLocaleString();
 
-
-//     outstanding = outstanding;
-//     outstanding = document.getElementById('total_outstanding').value;
-//     amount = amount;
-//     amount = document.getElementById('amount_paid').value;
-//     balance = amount - outstanding;
-//     document.getElementById('balance').value = balance.toLocaleString();
 
 // }
 
