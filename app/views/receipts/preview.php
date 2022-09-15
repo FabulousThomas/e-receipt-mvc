@@ -104,7 +104,7 @@
             <button id="printpdf" onclick="printpdf();">Print <span class="las la-print" id="las "></span></button>
          </div>
          <div>
-            <button onclick="document.location.href = 'preview.php'" download="Receipt.pdf" id="printpdf">Download <span class="las la-download" id="las "></span></button>
+            <button onclick="document.location.href = '<?php echo URLROOT; ?>/receipts/preview/<?php echo $data['receipt']->id; ?>'" download="Receipt.pdf" id="printpdf">Download <span class="las la-download" id="las "></span></button>
          </div>
          <div>
             <p style="display: flex; justify-content: center; align-items: center;">Share |
