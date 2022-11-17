@@ -12,7 +12,7 @@ class Users extends Controller
    // Load Register view
    public function register()
    {
-      if(!isLoggedIn()) {
+      if (!isLoggedIn()) {
          flashMsg('msg', 'The URL is not accessible!');
          redirect('users/login');
       }
