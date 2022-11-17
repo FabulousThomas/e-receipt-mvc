@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // Message function
 session_start();
@@ -24,11 +24,12 @@ function flashMsg($name = '', $message = '', $class = 'alert alert-success')
       }
    }
 }
-   // Checks if user is logged in
- function isLoggedIn() {
-      if(isset($_SESSION['user_id'])) {
-         return true;
-      } else {
-         return false;
-      }
+// Checks if user is logged in
+function isLoggedIn()
+{
+   if (isset($_SESSION['user_id'])) {
+      return true;
+   } else {
+      return false;
    }
+}
