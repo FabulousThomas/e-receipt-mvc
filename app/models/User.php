@@ -15,7 +15,7 @@ class User
       // Bind values
       $this->db->bind(':user_id', $user_id);
       $this->db->bind(':username', $data['username']);
-      $this->db->bind(':role', $data['role']);
+      // $this->db->bind(':role', $data['role']);
       $this->db->bind(':email', $data['email']);
       $this->db->bind(':password', $data['password']);
 
