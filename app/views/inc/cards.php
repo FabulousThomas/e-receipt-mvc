@@ -52,7 +52,7 @@
    <div class="card-single bg-light text-dark">
       <div>
          <?php foreach ($total as $to) { ?>
-            <h1><sup>NGN</sup> <?php echo $to['total'] ?></h1>
+            <h1><sup>NGN</sup> <?php echo number_format($to['total']) ?></h1>
          <?php } ?>
 
          <span>Total Income</span>
