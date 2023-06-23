@@ -28,8 +28,8 @@ class Page
    // =============ADD RECEIPTS==============
    public function addReceipts($data)
    {
-      $user_id = random_num(10);
-      $serial_no = random_num(10);
+      $user_id = random_num(1000000000);
+      $serial_no = random_num(1000000000);
 
       $this->db->query('INSERT INTO e_receipt (user_id, serial_no, date, estate, received_from, sum_of, payment_mode, payment_for, payment_figure, no_unit, amount_paid, outstanding, balance) VALUES (:user_id, :serial_no, :date, :estate, :received_from, :sum_of, :payment_mode, :payment_for, :payment_figure, :no_unit, :amount_paid, :outstanding, :balance)');
 
@@ -70,7 +70,7 @@ class Page
    // ===========ADD SHARING===================
    public function addSharing($data)
    {
-      $share_id = random_num(10);
+      $share_id = random_num(1000000000);
       $this->db->query('INSERT INTO sharing (share_id, info, amount, direct_com, level_one, level_two, business_invest, office_cost, business_savings, director_share, ceo, general_man, managing_direct) VALUES (:share_id, :info, :amount, :direct_com, :level_one, :level_two, :business_invest, :office_cost, :business_savings, :director_share, :ceo, :general_man, :managing_direct)');
 
       // Bind values
