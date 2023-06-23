@@ -45,6 +45,7 @@ class Pages extends Controller
 
       $data = [
          'receipt' => $receiptLimit,
+         'balance' => '',
          'title' => 'WELCOME TO THE INDEX PAGE',
          'description' => 'Home Page',
       ];
@@ -103,7 +104,7 @@ class Pages extends Controller
    {
       // Sanitize inputs
       $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-      if($_SERVER['REQUEST_METHOD'] == 'POST') {
+      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          $data = [
             'info' => trim($_POST['info']),
             'amount' => trim($_POST['amount']),
@@ -116,9 +117,9 @@ class Pages extends Controller
             'director-share' => trim($_POST['director-share']),
             'ceo' => trim($_POST['ceo']),
             'gm' => trim($_POST['gm']),
-            'md' => trim($_POST['md']),   
+            'md' => trim($_POST['md']),
          ];
-         if($this->pageModel->addSharing($data)) {
+         if ($this->pageModel->addSharing($data)) {
             flashMsg('msg', 'Record added', 'alert alert-success');
             redirect('pages/sharing/#records');
          } else {
